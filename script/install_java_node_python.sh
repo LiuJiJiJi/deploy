@@ -16,7 +16,7 @@ sudo apt-get install maven
 mvn --version
 # update maven setting
 sudo mkdir -r /usr/share/maven/repsoitories
-cp -rf ./maven/setting.xml /usr/share/maven/conf/
+sudo cp -rf ./maven/settings.xml /usr/share/maven/conf/
 
 # node10.x
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
