@@ -4,7 +4,9 @@
 Deploy related scripts
 
 ### init base env
- 
+
+> upload https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb 
+>    ----> /script/
 ```shell
 cd script
 sh install_docker.sh
