@@ -7,12 +7,12 @@ Deploy related scripts
  
 ```shell
 cd script
-sh init_ubuntu_cn.sh
+sh install_docker_cn.sh
 ```
 
 ### install common middleware (redis mysql mongodb)
 
 ```shell
 cd script
-sh init_ubuntu_cn.sh
+sh install_docker_cn.sh
 ```
