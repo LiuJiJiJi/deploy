@@ -45,7 +45,7 @@ sudo systemctl enable docker
 }
 EOF
 ) >/etc/docker/daemon.json
-systemctl restart docker
+sudo systemctl restart docker
 
 # Install docker-compose
 if [ -x "$(command -v docker-compose)" ]; then
