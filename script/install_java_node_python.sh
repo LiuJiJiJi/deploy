@@ -15,7 +15,7 @@ java -version
 sudo apt-get install maven
 mvn --version
 # update maven setting
-sudo mkdir -r /usr/share/maven/repsoitories
+sudo mkdir /usr/share/maven/repsoitories
 sudo cp -rf ./maven/settings.xml /usr/share/maven/conf/
 
 # node10.x
