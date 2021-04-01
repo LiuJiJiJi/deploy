@@ -54,6 +54,7 @@ else
   echo "Installing docker-compose..."
   sudo cp -r ./docker/docker-compose /usr/local/bin/
   sudo chmod +x /usr/local/bin/docker-compose
+  docker-compose -v
 fi
 
 # Grant docker permissions to ordinary users
@@ -63,5 +64,6 @@ sudo gpasswd -a ${USER} docker
 cat /etc/group
 sudo systemctl restart docker
 sudo chmod a+rw /var/run/docker.sock
+docker info
 
 echo "Success"
