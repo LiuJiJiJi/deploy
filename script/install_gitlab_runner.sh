@@ -11,6 +11,7 @@ echo -n "Please input REGISTRATION_TOKEN:"
 read REGISTRATION_TOKEN
 sudo gitlab-runner register --url https://gitlab.com/ --registration-token $REGISTRATION_TOKEN
 sudo systemctl enable gitlab-runner
+gitlab-runner list
 
 # Grant docker permissions to gitlab-runner users
 sudo groupadd docker
