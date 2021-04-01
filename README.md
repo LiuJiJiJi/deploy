@@ -11,7 +11,7 @@ sh install_docker.sh
 sh install_java_node_python.sh
 sh install_gitlab_runner.sh
 
-# -----------------------------------------------------
+# -----------------------un install------------------------------
 cd script
 sh uninstall_docker.sh
 sh uninstall_java_node_python.sh
