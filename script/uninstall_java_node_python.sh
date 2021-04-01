@@ -7,6 +7,7 @@ echo "UnInstall java and node and python Start"
 
 # jdk uninstall
 sudo apt-get remove --purge openjdk*
+sudo apt-get remove --purge maven
 # node uninstall
 sudo apt-get remove --purge nodejs npm yarn
 sudo rm -rf /usr/bin/yarn
