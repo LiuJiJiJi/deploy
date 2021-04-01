@@ -15,8 +15,8 @@ gitlab-runner list
 
 # Grant docker permissions to gitlab-runner users
 sudo groupadd docker
+# sudo newgrp docker
 sudo gpasswd -a gitlab-runner docker
-newgrp docker
 su gitlab-runner
 docker ps
 exit
