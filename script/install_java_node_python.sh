@@ -27,15 +27,18 @@ sudo yarn config set registry https://registry.npm.taobao.org
 # Dont uninstall python2.7, Is the basic package
 # python3.7 ----> /usr/bin/python3.7
 # https://www.python.org/ftp/python/3.xx/
-whereis python3
-## python3: /usr/bin/python3.6m /usr/bin/python3.6 /usr/bin/python3 /usr/lib/python3.6 /usr/lib/python3 /usr/lib/python3.7 /usr/lib/python3.8 /etc/python3.6 /etc/python3 /etc/python3.7 /usr/local/lib/python3.6 /usr/share/python3 /usr/share/man/man1/python3.1.gz
-## python3: /usr/bin/python3.6m /usr/bin/python3.6 /usr/bin/python3 /usr/bin/python3.7 /usr/bin/python3.7m /usr/lib/python3.6 /usr/lib/python3 /usr/lib/python3.7 /usr/lib/python3.8 /etc/python3.6 /etc/python3 /etc/python3.7 /usr/local/lib/python3.6 /usr/local/lib/python3.7 /usr/share/python3 /usr/share/man/man1/python3.1.gz
+whereis python
 sudo add-apt-repository ppa:jonathonf/python-3.7
 sudo apt-get update
 sudo apt-get install python3.7
-whereis python3
+whereis python
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 100
 # select python3
 sudo update-alternatives --config python
+# pip3 install
+sudo apt-get install python3-distutils
+sudo python get-pip.py
+pip --version
+pip --version
 
 echo "Install java and node and python end"
