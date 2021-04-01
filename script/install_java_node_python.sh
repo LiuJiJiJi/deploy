@@ -41,6 +41,7 @@ whereis python
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 100
 # select python3
 sudo update-alternatives --config python
+python --version
 # pip3 install
 sudo apt-get install python3-distutils
 sudo python ./python/get-pip.py
