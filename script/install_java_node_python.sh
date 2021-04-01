@@ -4,7 +4,7 @@
 ## java: 11
 ## node: 10.21.x
 ## python: 3.7
-echo "Install java and node start"
+echo "Install java and node and python start"
 
 # jdk8
 # sudo apt-get install openjdk-8-jdk
@@ -38,4 +38,4 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 100
 # select python3
 sudo update-alternatives --config python
 
-echo "Install java and node end"
+echo "Install java and node and python end"

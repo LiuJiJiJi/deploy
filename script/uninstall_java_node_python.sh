@@ -3,7 +3,7 @@
 # version
 ## java: 11
 ## node: 10.21.x
-echo "UnInstall java and node Start"
+echo "UnInstall java and node and python Start"
 
 # jdk uninstall
 sudo apt-get remove --purge openjdk*
@@ -14,4 +14,4 @@ sudo rm -rf /usr/bin/yarn
 sudo apt-get remove --purge python3.7*
 sudo update-alternatives --remove-all python
 
-echo "UnInstall java and node Success"
+echo "UnInstall java and node and python Success"
