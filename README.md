@@ -47,7 +47,7 @@ source ./script/init_variables.sh
 ```shell
 # start
 cd services
-source ./script/init_variables.sh
+source ../script/init_variables.sh
 docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 
 # cert generate
