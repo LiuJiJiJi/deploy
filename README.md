@@ -2,6 +2,7 @@
 
 #### 介绍
 Deploy related scripts
+[bitnami](https://hub.docker.com/u/bitnami)
 
 #### Dependencies
 
