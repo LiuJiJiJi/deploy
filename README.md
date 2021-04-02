@@ -71,6 +71,7 @@ rm -rf ./data/letsencrypt ./data/.acme
 # start
 cd services
 source ./script/init_variables.sh
+envsubst '${REDIS_PASSWORD}' < ./config/redis/redis.conf.example > ./config/redis/redis.conf
 docker-compose -f ./docker-compose-redis.yml up -d
 
 
