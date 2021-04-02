@@ -1,0 +1,32 @@
+version: '3'
+services:
+  acmesh:
+    image: ${ACMESH_IMAGE_BASE}:${ACMESH_IMAGE_TAG}
+    container_name: ${ACMESH_CONTAINER_NAME}
+    restart: always
+    command: daemon
+    environment:
+      - TZ="${TZ}"
+      - DP_Id=${ACMESH_DP_Id}
+      - DP_Key=${ACMESH_DP_Key}
+    volumes:
+      - ${NGINX_SSL_DIR}:/etc/letsencrypt
+      - ${ACMESH_ROOT_DIR}:/acme.sh
+
+  nginx:
+    image: ${NGINX_IMAGE_BASE}:${NGINX_IMAGE_TAG}
+    ports:
+      - "${NGINX_HTTP_PORT}:80"
+      - "${NGINX_HTTPS_PORT}:443"
+    volumes:
+      - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
+      - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d
+      - ${NGINX_LOG_DIR}:/var/log/nginx
+      - ${NGINX_SSL_DIR}:/etc/letsencrypt
+    restart: always
+    # network_mode: "host"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    environment:
+      - TZ="${TZ}"
+    container_name: ${NGINX_CONTAINER_NAME}
+    
