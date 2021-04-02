@@ -60,7 +60,7 @@ docker restart nginx
 
 # uninstall 
 cd services
-docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
+docker-compose -f ./docker-compose-nginx-acmesh.yml down -v
 rm -rf ./data/letsencrypt ./data/.acme
 ```
 
@@ -72,10 +72,26 @@ rm -rf ./data/letsencrypt ./data/.acme
 cd services
 source ./script/init_variables.sh
 envsubst '${REDIS_PASSWORD}' < ./config/redis/redis.conf.example > ./config/redis/redis.conf
-docker-compose -f ./docker-compose-redis.yml up -d
+docker-compose -f ./docker-compose-redis.yml --compatibility up -d
 
 
 # uninstall 
 cd services
-docker-compose -f ./docker-compose-redis.yml up -d
+rm -rf ./data/mysql
+docker-compose -f ./docker-compose-redis.yml down -v
+```
+
+### install mysql
+
+```shell
+# start
+cd services
+source ./script/init_variables.sh
+docker-compose -f ./docker-compose-mysql.yml --compatibility up -d
+
+
+# uninstall 
+cd services
+rm -rf ./data/mysql
+docker-compose -f ./docker-compose-mysql.yml down -v
 ```

@@ -1,0 +1,23 @@
+version: '3'
+services:
+  mysql:
+    container_name: ${MYSQL_CONTAINER_NAME}
+    image: ${MYSQL_IMAGE_BASE}:${MYSQL_IMAGE_TAG}
+    restart: always
+    ports:
+      - ${MYSQL_HOST_PORT}:3306
+    volumes:
+      - ${MYSQL_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL_CONFIG_FILE}:/etc/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_USERNAME}
+      MYSQL_USER: ${MYSQL_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    command:
+      # 将mysql8.0默认密码策略 修改为 原先 策略 (mysql8.0对其默认策略做了更改 会导致密码无法匹配)
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
