@@ -41,13 +41,15 @@ cd services
 cp -r env.example .env
 source ../script/init_variables.sh
 ```
-
+mkdir -p ./data/mongodb
+mkdir -p ./data/redis
 ### install nginx
 
 ```shell
 # start
 cd services
-source ../script/init_variables.sh
+mkdir -p ./data/.acme
+sudo chown -R 1001:1001 ./data/.acme
 docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 
 # cert generate
@@ -55,7 +57,7 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 sh ../script/install_certs.sh
 export DOMAIN="www.baidu.com"
 export PROXY_PASS="http://192.168.1.106:8080"
-envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/<input your server name>.server.conf
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx
 # view https://www.baidu.com
 
@@ -71,6 +73,8 @@ rm -rf ./data/letsencrypt ./data/.acme
 ```shell
 # start
 cd services
+mkdir -p ./data/redis
+sudo chown -R 1001:1001 ./data/redis
 docker-compose -f ./docker-compose-redis.yml --compatibility up -d
 
 
@@ -85,6 +89,8 @@ docker-compose -f ./docker-compose-redis.yml down -v
 ```shell
 # start
 cd services
+mkdir -p ./data/mysql
+sudo chown -R 1001:1001 ./data/mysql
 docker-compose -f ./docker-compose-mysql.yml --compatibility up -d
 
 
@@ -99,8 +105,9 @@ docker-compose -f ./docker-compose-mysql.yml down -v
 ```shell
 # start
 cd services
+mkdir -p ./data/mongodb
+sudo chown -R 1001:1001 ./data/mongodb
 docker-compose -f ./docker-compose-mongo.yml --compatibility up -d
-
 
 # uninstall 
 cd services
