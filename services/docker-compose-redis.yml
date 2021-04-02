@@ -2,15 +2,12 @@ version: '3'
 services:
   redis:
     container_name: ${REDIS_CONTAINER_NAME}
-    image: "${REDIS_IMAGE_BASE}:${REDIS_IMAGE_TAG}"
+    image: ${REDIS_IMAGE_BASE}:${REDIS_IMAGE_TAG}
     restart: always
     ports:
-      - "${REDIS_HOST_PORT}:6379"
+      - ${REDIS_HOST_PORT}:6379
     volumes:
-      - "${REDIS_DATA_DIR}:/bitnami/redis/data"
+      - ${REDIS_DATA_DIR}:/data
+      - ${REDIS_CONFIG_FILE}:/usr/local/etc/redis/redis.conf.example
     environment:
       - TZ="${TZ}"
-      - ALLOW_EMPTY_PASSWORD=${REDIS_ALLOW_EMPTY_PASSWORD}
-      # - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - REDIS_DISABLE_COMMANDS=${REDIS_DISABLE_COMMANDS}
-    

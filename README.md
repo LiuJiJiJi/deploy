@@ -38,6 +38,7 @@ sh uninstall_gitlab_runner.sh
 # Modify the variables in env
 cd services
 cp -r env.example .env
+source ./script/init_variables.sh
 ```
 
 ### install nginx
@@ -45,6 +46,7 @@ cp -r env.example .env
 ```shell
 # start
 cd services
+source ./script/init_variables.sh
 docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 
 # cert generate
@@ -68,6 +70,7 @@ rm -rf ./data/letsencrypt ./data/.acme
 ```shell
 # start
 cd services
+source ./script/init_variables.sh
 docker-compose -f ./docker-compose-redis.yml up -d
 
 
