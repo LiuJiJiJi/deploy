@@ -39,7 +39,7 @@ sh uninstall_gitlab_runner.sh
 # Modify the variables in env
 cd services
 cp -r env.example .env
-source ./script/init_variables.sh
+source ../script/init_variables.sh
 ```
 
 ### install nginx
@@ -71,7 +71,6 @@ rm -rf ./data/letsencrypt ./data/.acme
 ```shell
 # start
 cd services
-envsubst '${REDIS_PASSWORD}' < ./config/redis/redis.conf.example > ./config/redis/redis.conf
 docker-compose -f ./docker-compose-redis.yml --compatibility up -d
 
 
