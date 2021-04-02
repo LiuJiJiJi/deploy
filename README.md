@@ -62,7 +62,16 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 rm -rf ./data/letsencrypt ./data/.acme
 ```
 
-### install common middleware (redis mysql mongodb)
+
+### install redis
 
 ```shell
+# start
+cd services
+docker-compose -f ./docker-compose-redis.yml up -d
+
+
+# uninstall 
+cd services
+docker-compose -f ./docker-compose-redis.yml up -d
 ```
