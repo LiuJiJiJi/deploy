@@ -50,6 +50,7 @@ mkdir -p ./data/redis
 cd services
 mkdir -p ./data/letsencrypt
 sudo chown -R 1001:1001 ./data/letsencrypt
+sudo chown -R 1001:1001 ./data/acme.sh
 docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 
 # cert generate
