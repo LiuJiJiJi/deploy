@@ -48,8 +48,8 @@ mkdir -p ./data/redis
 ```shell
 # start
 cd services
-mkdir -p ./data/.acme
-sudo chown -R 1001:1001 ./data/.acme
+mkdir -p ./data/letsencrypt
+sudo chown -R 1001:1001 ./data/letsencrypt
 docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 
 # cert generate
@@ -80,7 +80,7 @@ docker-compose -f ./docker-compose-redis.yml --compatibility up -d
 
 # uninstall 
 cd services
-rm -rf ./data/mysql
+rm -rf ./data/redis
 docker-compose -f ./docker-compose-redis.yml down -v
 ```
 
