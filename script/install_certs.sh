@@ -2,19 +2,17 @@
 #
 # Renew all SSL certificates and import to corresponding directories - Andywu
 
-echo "\033[31m Tip: \033[0m"
-read -p "   Please input domain:" domain
-echo "[$domain] generate cert start"
+#echo "\033[31m Tip: \033[0m"
+#read -p "   Please input domain:" DOMAIN
+echo "[$DOMAIN] generate cert start"
 
-# docker exec acme --issue --log --dns dns_dp -d $domain --keylength ec-384
-sudo docker exec acme --issue --log --dns dns_dp -d $domain
+# docker exec acme --issue --log --dns dns_dp -d $DOMAIN --keylength ec-384
+sudo docker exec acme --issue --log --dns dns_dp -d $DOMAIN
 
-sleep 24s
-
-sudo docker exec acme --install-cert -d $domain \
-  --cert-file /etc/letsencrypt/$domain.chain.pem \
-  --key-file /etc/letsencrypt/$domain.privkey.pem \
-  --fullchain-file /etc/letsencrypt/$domain.fullchain.pem
+sudo docker exec acme --install-cert -d $DOMAIN \
+  --cert-file /etc/letsencrypt/$DOMAIN.chain.pem \
+  --key-file /etc/letsencrypt/$DOMAIN.privkey.pem \
+  --fullchain-file /etc/letsencrypt/$DOMAIN.fullchain.pem
 
 
-echo "[$domain] generate cert end"
+echo "[$DOMAIN] generate cert end"

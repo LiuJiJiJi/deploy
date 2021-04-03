@@ -54,9 +54,9 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 
 # cert generate
 # E.g: domain=www.baidu.com proxy_pass=http://192.168.1.106:8080
-sh ../script/install_certs.sh
 export DOMAIN="www.baidu.com"
 export PROXY_PASS="http://192.168.1.106:8080"
+sh ../script/install_certs.sh
 envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx
 # view https://www.baidu.com
