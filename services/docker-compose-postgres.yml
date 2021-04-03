@@ -1,0 +1,14 @@
+version: '3'
+services:
+  mysql:
+    container_name: ${POSTGRES_CONTAINER_NAME}
+    image: ${POSTGRES_IMAGE_BASE}:${POSTGRES_IMAGE_TAG}
+    ports:
+      - ${POSTGRES_HOST_PORT}:5432
+    volumes:
+      - ${POSTGRES_DATA_DIR}:/bitnami/postgresql
+    environment:
+      - TZ="${TZ}"
+      - POSTGRESQL_USERNAME=${POSTGRES_USERNAME}
+      - POSTGRESQL_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRESQL_DATABASE=${POSTGRES_DATABASE}

@@ -114,3 +114,18 @@ cd services
 rm -rf ./data/mongodb
 docker-compose -f ./docker-compose-mongo.yml down -v
 ```
+
+### install postgres
+
+```shell
+# start
+cd services
+mkdir -p ./data/postgres
+sudo chown -R 1001:1001 ./data/postgres
+docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
+
+# uninstall 
+cd services
+rm -rf ./data/mongodb
+docker-compose -f ./docker-compose-postgres.yml down -v
+```
