@@ -2,6 +2,7 @@ version: '3'
 services:
   mysql:
     container_name: ${POSTGRES_CONTAINER_NAME}
+    restart: always
     image: ${POSTGRES_IMAGE_BASE}:${POSTGRES_IMAGE_TAG}
     ports:
       - ${POSTGRES_HOST_PORT}:5432
