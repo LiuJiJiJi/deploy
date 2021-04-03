@@ -111,6 +111,6 @@ docker-compose -f ./docker-compose-mongo.yml --compatibility up -d
 
 # uninstall 
 cd services
-rm -rf ./data/mysql
+rm -rf ./data/mongodb
 docker-compose -f ./docker-compose-mongo.yml down -v
 ```
