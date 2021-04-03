@@ -9,6 +9,8 @@ echo "[$domain] generate cert start"
 # docker exec acme --issue --log --dns dns_dp -d $domain --keylength ec-384
 sudo docker exec acme --issue --log --dns dns_dp -d $domain
 
+sleep 24s
+
 sudo docker exec acme --install-cert -d $domain \
   --cert-file /etc/letsencrypt/$domain.chain.pem \
   --key-file /etc/letsencrypt/$domain.privkey.pem \
