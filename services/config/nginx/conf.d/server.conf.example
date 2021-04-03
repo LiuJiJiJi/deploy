@@ -36,10 +36,10 @@ server {
     location / {
         proxy_pass ${PROXY_PASS};
 
-        proxy_set_header Content-Type 'application/json';
+        # proxy_set_header Content-Type 'application/json';
         # proxy_set_header X-NginX-Proxy true;
         # proxy_ssl_session_reuse off;
-        proxy_redirect off;
+        # proxy_redirect off;
 
         include    conf.d/generic/proxy.conf;
 
