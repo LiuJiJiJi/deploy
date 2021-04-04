@@ -6,6 +6,7 @@ node_modules/
 *.back
 **/conf.d/*.server.conf
 *.log
+.DS_Store
 **/logs/**
 services/data/**
 **/redis.conf
