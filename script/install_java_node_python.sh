@@ -29,6 +29,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt install --no-install-recommends yarn
 yarn --version
 sudo yarn config get registry
+# sudo yarn config set registry https://registry.yarnpkg.com
 sudo yarn config set registry https://registry.npm.taobao.org
 
 # Dont uninstall python2.7, Is the basic package
