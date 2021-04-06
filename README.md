@@ -62,7 +62,6 @@ docker restart nginx
 # view https://www.baidu.com
 
 # uninstall 
-cd services
 docker-compose -f ./docker-compose-nginx-acmesh.yml down -v
 rm -rf ./data/letsencrypt ./data/.acme
 ```
@@ -79,9 +78,8 @@ docker-compose -f ./docker-compose-redis.yml --compatibility up -d
 
 
 # uninstall 
-cd services
-rm -rf ./data/redis
 docker-compose -f ./docker-compose-redis.yml down -v
+rm -rf ./data/redis
 ```
 
 ### install mysql
@@ -95,9 +93,8 @@ docker-compose -f ./docker-compose-mysql.yml --compatibility up -d
 
 
 # uninstall 
-cd services
-rm -rf ./data/mysql
 docker-compose -f ./docker-compose-mysql.yml down -v
+rm -rf ./data/mysql
 ```
 
 ### install mongodb
@@ -110,9 +107,8 @@ sudo chown -R 1001:1001 ./data/mongodb
 docker-compose -f ./docker-compose-mongo.yml --compatibility up -d
 
 # uninstall 
-cd services
-rm -rf ./data/mongodb
 docker-compose -f ./docker-compose-mongo.yml down -v
+rm -rf ./data/mongodb
 ```
 
 ### install postgres
@@ -125,7 +121,6 @@ sudo chown -R 1001:1001 ./data/postgres
 docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 
 # uninstall 
-cd services
-rm -rf ./data/mongodb
 docker-compose -f ./docker-compose-postgres.yml down -v
+rm -rf ./data/mongodb
 ```
