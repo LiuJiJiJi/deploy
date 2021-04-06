@@ -63,7 +63,7 @@ docker restart nginx
 
 # uninstall 
 docker-compose -f ./docker-compose-nginx-acmesh.yml down -v
-rm -rf ./data/letsencrypt ./data/.acme
+sudo rm -rf ./data/letsencrypt ./data/.acme
 ```
 
 
@@ -79,7 +79,7 @@ docker-compose -f ./docker-compose-redis.yml --compatibility up -d
 
 # uninstall 
 docker-compose -f ./docker-compose-redis.yml down -v
-rm -rf ./data/redis
+sudo rm -rf ./data/redis
 ```
 
 ### install mysql
@@ -94,7 +94,7 @@ docker-compose -f ./docker-compose-mysql.yml --compatibility up -d
 
 # uninstall 
 docker-compose -f ./docker-compose-mysql.yml down -v
-rm -rf ./data/mysql
+sudo rm -rf ./data/mysql
 ```
 
 ### install mongodb
@@ -108,7 +108,7 @@ docker-compose -f ./docker-compose-mongo.yml --compatibility up -d
 
 # uninstall 
 docker-compose -f ./docker-compose-mongo.yml down -v
-rm -rf ./data/mongodb
+sudo rm -rf ./data/mongodb
 ```
 
 ### install postgres
@@ -122,5 +122,5 @@ docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 
 # uninstall 
 docker-compose -f ./docker-compose-postgres.yml down -v
-rm -rf ./data/mongodb
+sudo rm -rf ./data/mongodb
 ```
