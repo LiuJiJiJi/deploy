@@ -122,5 +122,5 @@ docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 
 # uninstall 
 docker-compose -f ./docker-compose-postgres.yml down -v
-sudo rm -rf ./data/mongodb
+sudo rm -rf ./data/postgres
 ```
