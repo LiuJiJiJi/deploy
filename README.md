@@ -21,6 +21,11 @@ gitlab-runner
 > upload https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb 
 >    ----> /script/
 ```shell
+# -----------------------Config bash---------------------------------
+sudo dpkg-reconfigure dash
+# select no 
+ls -l `which sh`
+
 # -----------------------set server time-zone---------------------------------
 sudo cp --remove-destination  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 # sudo cp --remove-destination  /usr/share/zoneinfo/America/Chicago  /etc/localtime
