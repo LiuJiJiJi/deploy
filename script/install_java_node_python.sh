@@ -20,17 +20,35 @@ sudo cp -rf ./maven/settings.xml /usr/share/maven/conf/
 sudo chmod a+rw /usr/share/maven
 
 # node10.x
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt install nodejs
+# curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+# sudo apt install nodejs
+# node --version
+# sudo npm config set  registry https://registry.npm.taobao.org
+# npm --version
+# curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+# echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# sudo apt install --no-install-recommends yarn
+# yarn --version
+# sudo yarn config get registry
+# sudo yarn config set registry https://registry.yarnpkg.com
+# sudo yarn config set registry https://registry.npm.taobao.org
+# nvm
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
+echo 'source ${HOME}/.nvm/nvm.sh' >> ~/.profile
+source ~/.profile
+nvm --version
+nvm install 10
+nvm use 10
+nvm list
 node --version
 npm --version
+sudo npm config set  registry https://registry.npm.taobao.org
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt install --no-install-recommends yarn
 yarn --version
-sudo yarn config get registry
-# sudo yarn config set registry https://registry.yarnpkg.com
 sudo yarn config set registry https://registry.npm.taobao.org
+
 
 # Dont uninstall python2.7, Is the basic package
 # python3.7 ----> /usr/bin/python3.7

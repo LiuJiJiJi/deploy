@@ -13,6 +13,7 @@ openssl
 envsubst
 docker v18.06.3
 docker-compose
+gitlab-runner
 ```
 
 ### init base env
@@ -21,8 +22,13 @@ docker-compose
 >    ----> /script/
 ```shell
 # -----------------------set server time-zone---------------------------------
-sudo cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+sudo cp --remove-destination  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
+# sudo cp --remove-destination  /usr/share/zoneinfo/America/Chicago  /etc/localtime
+# sudo cp --remove-destination  /usr/share/zoneinfo/Australia/Melbourne  /etc/localtime
+date
 
+git clone 
+cd deploy https://github.com/LiuJiJiJi/deploy.git
 # -----------------------install---------------------------------
 cd script
 sh install_docker.sh
@@ -123,4 +129,10 @@ docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 # uninstall 
 docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
+```
+
+### frp https
+
+```shell
+TODO
 ```
