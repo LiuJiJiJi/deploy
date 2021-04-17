@@ -36,6 +36,7 @@ sudo chmod a+rw /usr/share/maven
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
 echo 'source /home/ubuntu/.nvm/nvm.sh' >> ~/.profile
 source ~/.profile
+source $HOME/.nvm/nvm.sh
 nvm --version
 nvm install 10
 nvm use 10
