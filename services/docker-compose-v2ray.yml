@@ -7,7 +7,6 @@ services:
     ports:
       - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}
       - 5431:5431
-      - 5430:5430
       # - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}/udp
     volumes:
       - ${V2RAY_LOG_DIR}:/var/log/v2ray/

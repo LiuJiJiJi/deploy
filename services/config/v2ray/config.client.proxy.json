@@ -46,5 +46,16 @@
                 "redirect": "127.0.0.1:3000"
             }
         }
-    ]
+    ],
+    "routing":{   
+        "rules":[
+          {  
+            "type":"field",
+            "inboundTag":[  
+              "bridge"
+            ],
+            "outboundTag":"local"
+          }
+        ]
+      }
 }
