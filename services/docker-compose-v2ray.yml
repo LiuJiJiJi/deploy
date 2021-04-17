@@ -4,9 +4,7 @@ services:
     container_name: ${V2RAY_CONTAINER_NAME}
     image: ${V2RAY_IMAGE_BASE}:${V2RAY_IMAGE_TAG}
     restart: always
-    command: v2ray -config=/etc/v2ray/config.json
-    expose:
-      - ${V2RAY_HOST_PORT} #开放端口给容器，不对外开放
+    cap-add: NET_ADMIN 
     ports:
       - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}
       - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}/udp
@@ -14,5 +12,3 @@ services:
       - ${V2RAY_LOG_DIR}:/var/log/v2ray/
       - ${V2RAY_DATA_DIR}:/etc/v2ray
       - ${V2RAY_CONF_FILE}:/etc/v2ray/config.json
-    environment:
-      - TZ="${TZ}"
