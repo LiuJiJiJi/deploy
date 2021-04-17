@@ -17,6 +17,12 @@
             "security": "chacha20-poly1305"
             }
           ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "path": "/v2ray"
+          }
         }
     },
     "outbound": {

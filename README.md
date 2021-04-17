@@ -68,7 +68,7 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 export DOMAIN="www.baidu.com"
 export PROXY_PASS="http://192.168.1.106:8080"
 sh ../script/install_certs.sh
-cp  ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx
 # Update your domain name resolution， target www.baidu.com to your ip6 addr
 # view https://www.baidu.com
