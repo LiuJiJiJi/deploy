@@ -21,7 +21,7 @@ gitlab-runner
 > upload https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb 
 >    ----> /script/
 ```shell
-# -----------------------Config bash---------------------------------
+# -----------------------Config sh , For support source ---------------------------------
 sudo dpkg-reconfigure dash
 # select no 
 ls -l `which sh`
@@ -70,6 +70,7 @@ export PROXY_PASS="http://192.168.1.106:8080"
 sh ../script/install_certs.sh
 envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx
+# Update your domain name resolution， target www.baidu.com to your ip6 addr
 # view https://www.baidu.com
 
 # uninstall 

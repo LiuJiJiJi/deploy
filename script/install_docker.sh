@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install necessary tools
-apt update && apt install -y envsubst openssl
+apt update && apt install -y envsubst openssl tree
 
 
 # Check if docker is installed
