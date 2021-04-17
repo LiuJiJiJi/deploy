@@ -55,20 +55,6 @@ source ../script/init_variables.sh
 mkdir -p ./data/mongodb
 mkdir -p ./data/redis
 
-### [v2ray](https://www.v2fly.org/guide/install.html#docker-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F) tls
-
-```shell
-cd services
-mkdir -p ./data/v2ray
-sudo chown -R 1001:1001 ./data/v2ray
-cp  ./config/v2ray/config.demo.json   ./config/v2ray/config.json
-# Please update the client infomation
-docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
-
-# uninstall 
-docker-compose -f ./docker-compose-v2ray.yml down -v
-sudo rm -rf ./data/v2ray
-```
 
 ### install nginx
 
@@ -94,6 +80,28 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml down -v
 sudo rm -rf ./data/letsencrypt ./data/.acme
 ```
 
+### [v2ray](https://www.v2fly.org/guide/install.html#docker-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F) + ws + tls
+
+```shell
+cd services
+mkdir -p ./data/v2ray
+sudo chown -R 1001:1001 ./data/v2ray
+cp  ./config/v2ray/config.demo.json   ./config/v2ray/config.json
+# Please update the client infomation
+docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
+export DOMAIN="v2ray.baidu.com"
+export PROXY_PASS="http://192.168.1.106:5432"
+sh ../script/install_certs.sh
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.v2ray.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
+docker restart nginx v2ray
+
+# uninstall 
+docker-compose -f ./docker-compose-v2ray.yml down -v
+sudo rm -rf ./data/v2ray
+```
+> **client conifg**
+> ![](./img/v2ray_config.png)
+> ![](./img/v2ray_config_tsl.png)
 
 ### install redis
 
