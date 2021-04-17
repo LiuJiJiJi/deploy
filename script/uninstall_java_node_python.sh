@@ -15,6 +15,7 @@ nvm deactivate
 nvm uninstall node
 rm -rf ~/.nvm
 sed -i '/nvm.sh/d' ~/.profile
+sed -i '/.nvm/d' ~/.profile
 source ~/.profile
 # python3.7.x
 sudo apt-get remove --purge -y python3.7*
