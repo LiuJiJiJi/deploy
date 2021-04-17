@@ -14,6 +14,27 @@
   },
   "inbounds": [
     {
+      "udp": true,
+      "port": 5432,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+            {
+            "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23",
+            "level": 1,
+            "alterId": 64,
+            "security": "chacha20-poly1305"
+            }
+          ]
+        },
+        "streamSettings": {
+          "network": "ws",
+          "wsSettings": {
+            "path": "/"
+          }
+        }
+    },
+    {
       "tag": "portalin",
       "port": 3000,
       "protocol": "dokodemo-door",

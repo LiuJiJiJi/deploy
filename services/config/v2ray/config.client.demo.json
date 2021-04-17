@@ -25,8 +25,8 @@
         "settings": {
           "vnext": [
             {
-              "address": "150.109.12.38",
-              "port": 5432,
+              "address": "v2ray.liujiji.com",
+              "port": 443,
               "users": [
                 {
                   "id": "134b53ca-b0cc-44a7-a28f-4214842c2fd6",
