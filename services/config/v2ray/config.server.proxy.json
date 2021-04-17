@@ -10,49 +10,54 @@
       "domain": "local.liujiji.com"
     }]
   },
-  "inbounds": [
-    {
-      "tag": "external",
+  "inbounds": [{
+    "tag": "local",
+    "port": 5431,
+    "protocol": "dokodemo-door",
+    "settings": {
+      "address": "127.0.0.1",
       "port": 5431,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "port": 5431,
-        "network": "tcp"
-      }
-    },{
-      "tag": "tunnel",
-      "udp": true,
-      "port": 5432,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [{
-          "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23",
-          "level": 1,
-          "alterId": 64,
-          "security": "chacha20-poly1305"
-        }]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/"
-        }
+      "network": "tcp"
+    }
+  }, {
+    "tag": "tunnel",
+    "udp": true,
+    "port": 5432,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [{
+        "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23",
+        "level": 1,
+        "alterId": 64,
+        "security": "chacha20-poly1305"
+      }]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/"
       }
     }
-  ],
+  }],
   "outbound": {
     "protocol": "freedom",
     "settings": {}
   },
-  "routing":{  
-    "rules":[  
-      { 
-        "type":"field",
-        "inboundTag":[  
-          "external"
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "local"
         ],
-        "outboundTag":"portal"
+        "outboundTag": "portal"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "tunnel"
+        ],
+        "outboundTag": "portal"
       }
     ]
   }
