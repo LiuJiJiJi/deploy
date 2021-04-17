@@ -12,23 +12,38 @@
         }
       },
       {
+        "tag": "interconn",
+        "mux": {},
         "protocol": "vmess",
+        "sendThrough": "0.0.0.0",
         "settings": {
-          "vnext": [
-            {
-              "address": "150.109.12.38",
-              "port": 5432,
-              "users": [
-                {
-                  "id": "27848739-7e62-4138-9fd3-098a63964b6b",
-                  "alterId": 32
-                }
-              ]
-            }
-          ]
+            "vnext": [{
+                "address": "v2ray.liujiji.com",
+                "port": 443,
+                "users": [{
+                    "alterId": 64,
+                    "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23"
+                }]
+            }]
         },
-        "tag": "interconn"
-      }
+        "streamSettings": {
+            "network": "ws",
+            "security": "tls",
+            "tlsSettings": {
+                "allowInsecure": false,
+                "disableSessionResumption": true,
+                "disableSystemRoot": false
+            },
+            "wsSettings": {
+                "path": ""
+            },
+            "xtlsSettings": {
+                "allowInsecure": false,
+                "disableSessionResumption": true,
+                "disableSystemRoot": false
+            }
+        }
+    }
     ],
     "routing": {
       "domainStrategy": "AsIs",
