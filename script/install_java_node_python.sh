@@ -35,6 +35,8 @@ sudo chmod a+rw /usr/share/maven
 # nvm
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
 # echo 'source $HOME/.nvm/nvm.sh' >> ~/.profile
+echo 'sleep 6s, for waitting ~/.profile edit finish.'
+sleep 6s
 source ~/.profile
 nvm --version
 nvm install 10
@@ -42,7 +44,7 @@ nvm use 10
 nvm list
 node --version
 npm --version
-sudo npm config set  registry https://registry.npm.taobao.org
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt install -y --no-install-recommends yarn
