@@ -10,7 +10,17 @@
       "domain": "local.liujiji.com"
     }]
   },
-  "inbounds": [{
+  "inbounds": [
+    {
+      "tag": "external",
+      "port": 5431,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 5431,
+        "network": "tcp"
+      }
+    },{
       "tag": "tunnel",
       "udp": true,
       "port": 5432,
@@ -29,16 +39,6 @@
           "path": "/"
         }
       }
-    },
-    {
-      "tag": "external",
-      "port": 5431,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "port": 5431,
-        "network": "tcp"
-      }
     }
   ],
   "outbound": {
@@ -50,16 +50,17 @@
       {
         "type": "field",
         "inboundTag": [
-          "tunnel"
+          "external"
         ],
         "domain": [
           "full:local.liujiji.com"
         ],
         "outboundTag": "portal"
-      },{
+      },
+      {
         "type": "field",
         "inboundTag": [
-          "external"
+          "tunnel"
         ],
         "outboundTag": "portal"
       }

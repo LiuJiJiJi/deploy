@@ -5,7 +5,15 @@
             "domain": "local.liujiji.com"
         }]
     },
-    "outbounds": [{
+    "outbounds": [
+        {
+            "tag": "local",
+            "protocol": "freedom",
+            "settings": {
+                "redirect": "127.0.0.1:3000"
+            }
+        },
+        {
             "tag": "tunnel",
             "mux": {},
             "protocol": "vmess",
@@ -37,17 +45,11 @@
                     "disableSystemRoot": false
                 }
             }
-        },
-        {
-            "tag": "bridgeout",
-            "protocol": "freedom",
-            "settings": {
-                "redirect": "127.0.0.1:3000"
-            }
         }
     ],
     "routing": {
-        "rules": [{
+        "rules": [
+            {
                 "type": "field",
                 "inboundTag": [
                     "bridge"
@@ -55,14 +57,13 @@
                 "domain": [
                     "full:local.liujiji.com"
                 ],
-                "outboundTag": "tunnel"
-            },
-            {
+                "outboundTag": "local"
+            },{
                 "type": "field",
                 "inboundTag": [
                     "bridge"
                 ],
-                "outboundTag": "bridgeout"
+                "outboundTag": "tunnel"
             }
         ]
     }
