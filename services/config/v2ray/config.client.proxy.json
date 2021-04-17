@@ -1,0 +1,83 @@
+{
+    "reverse": {
+        "bridges": [{
+            "tag": "bridge",
+            "domain": "local.liujiji.com"
+        }]
+    },
+    "outbounds": [{
+            "mux": {},
+            "protocol": "vmess",
+            "sendThrough": "0.0.0.0",
+            "settings": {
+                "vnext": [{
+                    "address": "v2ray.liujiji.com",
+                    "port": 443,
+                    "users": [{
+                        "alterId": 64,
+                        "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23"
+                    }]
+                }]
+            },
+            "streamSettings": {
+                "network": "ws",
+                "security": "tls",
+                "tlsSettings": {
+                    "allowInsecure": false,
+                    "disableSessionResumption": true,
+                    "disableSystemRoot": false
+                },
+                "wsSettings": {
+                    "path": ""
+                },
+                "xtlsSettings": {
+                    "allowInsecure": false,
+                    "disableSessionResumption": true,
+                    "disableSystemRoot": false
+                }
+            },
+            "tag": "PROXY"
+        },
+        {
+            "tag": "tunnel",
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [{
+                    "address": "v2ray.liujiji.com",
+                    "port": 5430,
+                    "users": [{
+                        "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
+                        "alterId": 32
+                    }]
+                }]
+            }
+        },
+        {
+            "tag": "bridgeout",
+            "protocol": "freedom",
+            "settings": {
+                "redirect": "127.0.0.1:3000"
+            }
+        }
+    ],
+    "routing": {
+        "rules": [{
+                "type": "field",
+                "inboundTag": [
+                    "bridge"
+                ],
+                "domain": [
+                    "full:local.liujiji.com"
+                ],
+                "outboundTag": "tunnel"
+            },
+            {
+                "type": "field",
+                "inboundTag": [
+                    "bridge"
+                ],
+                "outboundTag": "bridgeout"
+            }
+        ]
+    }
+}
