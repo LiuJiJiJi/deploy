@@ -28,7 +28,7 @@ server {
 
     # security
     include                 conf.d/generic/security.conf;
-    location /v2ray {
+    location / {
         proxy_pass ${PROXY_PASS};
         proxy_redirect off;
         proxy_http_version 1.1;

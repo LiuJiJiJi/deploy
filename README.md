@@ -77,7 +77,7 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml down -v
 sudo rm -rf ./data/letsencrypt ./data/.acme
 ```
 
-### [v2ray](https://www.v2fly.org/guide/install.html#docker-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F) + ws + tls
+### [v2ray](https://www.v2fly.org/config/inbounds.html#inboundobject) + ws + tls
 
 ```shell
 cd services
@@ -156,10 +156,4 @@ docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 # uninstall 
 docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
-```
-
-### frp https
-
-```shell
-TODO
 ```

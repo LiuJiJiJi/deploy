@@ -1,32 +1,58 @@
 {
-    "log": {
-      "access": "/var/log/v2ray/access.log",
-      "error": "/var/log/v2ray/error.log",
-      "loglevel": "warning"
+  "log": {
+    "access": "",
+    "error": "",
+    "loglevel": "warning"
+  },
+  "reverse": {
+    "portals": [
+      {
+        "tag": "portal",
+        "domain": "local.liujiji.com"
+      }
+    ]
+  },
+  "inbounds": [
+    {
+      "tag": "portalin",
+      "port": 3000,
+      "protocol": "dokodemo-door",
+      "settings": {
+        "address": "127.0.0.1",
+        "port": 3000,
+        "network": "tcp"
+      }
     },
-    "inbound": {
-      "udp": true,
+    {
       "port": 5432,
+      "tag": "interconn",
       "protocol": "vmess",
       "settings": {
         "clients": [
-            {
-            "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23",
-            "level": 1,
-            "alterId": 64,
-            "security": "chacha20-poly1305"
-            }
-          ]
-        },
-        "streamSettings": {
-          "network": "ws",
-          "wsSettings": {
-            "path": "/v2ray"
+          {
+            "id": "134b53ca-b0cc-44a7-a28f-4214842c2fd6",
+            "alterId": 64
           }
-        }
-    },
-    "outbound": {
-      "protocol": "freedom",
-      "settings": {}
+        ]
+      }
     }
+  ],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "portalin"
+        ],
+        "outboundTag": "portal"
+      },
+      {
+        "type": "field",
+        "inboundTag": [
+          "interconn"
+        ],
+        "outboundTag": "portal"
+      }
+    ]
   }
+}
