@@ -34,8 +34,7 @@ sudo chmod a+rw /usr/share/maven
 # sudo yarn config set registry https://registry.npm.taobao.org
 # nvm
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
-echo 'source $HOME/.nvm/nvm.sh' >> ~/.profile
-source ~/.profile
+source $HOME/.nvm/nvm.sh
 nvm --version
 nvm install 10
 nvm use 10
