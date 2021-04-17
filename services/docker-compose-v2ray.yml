@@ -7,6 +7,8 @@ services:
     command: v2ray -config=/etc/v2ray/config.json
     expose:
       - ${V2RAY_HOST_PORT} #开放端口给容器，不对外开放
+    ports:
+      - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}  
     volumes:
       - ${V2RAY_LOG_DIR}:/var/log/v2ray/
       - ${V2RAY_DATA_DIR}:/etc/v2ray

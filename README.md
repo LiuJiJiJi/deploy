@@ -144,6 +144,7 @@ cd services
 mkdir -p ./data/v2ray
 sudo chown -R 1001:1001 ./data/v2ray
 cp  ./config/v2ray/config.demo.json   ./config/v2ray/config.json
+# Please update the client infomation
 docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
 
 # uninstall 
