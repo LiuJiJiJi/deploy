@@ -9,7 +9,7 @@ echo "Install java and node and python start"
 # jdk8
 # sudo apt-get install openjdk-8-jdk
 # jdk11
-sudo apt-get install openjdk-11-jdk
+sudo apt-get install -y openjdk-11-jdk
 java -version
 # maven install ---->
 sudo apt-get install maven
@@ -45,7 +45,7 @@ npm --version
 sudo npm config set  registry https://registry.npm.taobao.org
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt install --no-install-recommends yarn
+sudo apt install -y --no-install-recommends yarn
 yarn --version
 sudo yarn config set registry https://registry.npm.taobao.org
 
@@ -56,7 +56,7 @@ sudo yarn config set registry https://registry.npm.taobao.org
 whereis python
 sudo add-apt-repository ppa:jonathonf/python-3.7
 sudo apt-get update
-sudo apt-get install python3.7
+sudo apt-get install -y python3.7
 whereis python
 sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 100
 # select python3
