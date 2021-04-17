@@ -52,9 +52,6 @@ cd ../services
 cp -r env.example .env
 source ../script/init_variables.sh
 ```
-mkdir -p ./data/mongodb
-mkdir -p ./data/redis
-
 
 ### install nginx
 
