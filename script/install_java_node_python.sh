@@ -34,7 +34,20 @@ sudo chmod a+rw /usr/share/maven
 # sudo yarn config set registry https://registry.npm.taobao.org
 # nvm
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | bash
-sh ./install_node10.sh
+echo 'source $HOME/.nvm/nvm.sh' >> ~/.profile
+source ~/.profile
+nvm --version
+nvm install 10
+nvm use 10
+nvm list
+node --version
+npm --version
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt install -y --no-install-recommends yarn
+yarn --version
+sudo yarn config set registry https://registry.npm.taobao.org
+
 
 
 # Dont uninstall python2.7, Is the basic package
