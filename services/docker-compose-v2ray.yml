@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}
-      - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}/udp
+      # - ${V2RAY_HOST_PORT}:${V2RAY_HOST_PORT}/udp
     volumes:
       - ${V2RAY_LOG_DIR}:/var/log/v2ray/
       - ${V2RAY_DATA_DIR}:/etc/v2ray
