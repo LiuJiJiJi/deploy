@@ -1,0 +1,39 @@
+# HTTP redirect
+server {
+    listen      80;
+    listen      [::]:80;
+    server_name ${DOMAIN};
+    include     conf.d/generic/letsencrypt.conf;
+
+    location / {
+        return 301 https://${DOMAIN}$request_uri;
+    }
+}
+
+# HTTPS redirect
+server {
+    listen 443 ssl http2 default_server;
+    # listen                  443 ssl;
+    # listen                  [::]:443 ssl;
+    server_name             ${DOMAIN};
+
+    if ($host != '${DOMAIN}') {
+        return 403;
+    }
+
+    # SSL
+    ssl_certificate         /etc/letsencrypt/${DOMAIN}.fullchain.pem;
+    ssl_certificate_key     /etc/letsencrypt/${DOMAIN}.privkey.pem;
+    ssl_trusted_certificate /etc/letsencrypt/${DOMAIN}.chain.pem;
+
+    # security
+    include                 conf.d/generic/security.conf;
+    location /v2ray {
+        proxy_pass ${PROXY_PASS};
+        proxy_redirect off;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;    
+    }
+}

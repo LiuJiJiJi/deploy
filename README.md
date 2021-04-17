@@ -54,6 +54,22 @@ source ../script/init_variables.sh
 ```
 mkdir -p ./data/mongodb
 mkdir -p ./data/redis
+
+### [v2ray](https://www.v2fly.org/guide/install.html#docker-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F) tls
+
+```shell
+cd services
+mkdir -p ./data/v2ray
+sudo chown -R 1001:1001 ./data/v2ray
+cp  ./config/v2ray/config.demo.json   ./config/v2ray/config.json
+# Please update the client infomation
+docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
+
+# uninstall 
+docker-compose -f ./docker-compose-v2ray.yml down -v
+sudo rm -rf ./data/v2ray
+```
+
 ### install nginx
 
 ```shell
@@ -135,21 +151,6 @@ docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 # uninstall 
 docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
-```
-
-### [v2ray](https://www.v2fly.org/guide/install.html#docker-%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F) tls
-
-```shell
-cd services
-mkdir -p ./data/v2ray
-sudo chown -R 1001:1001 ./data/v2ray
-cp  ./config/v2ray/config.demo.json   ./config/v2ray/config.json
-# Please update the client infomation
-docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
-
-# uninstall 
-docker-compose -f ./docker-compose-v2ray.yml down -v
-sudo rm -rf ./data/v2ray
 ```
 
 ### frp https
