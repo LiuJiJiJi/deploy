@@ -2,6 +2,8 @@
 
 # Install necessary tools
 apt update && apt install -y envsubst openssl
+sudo dpkg-reconfigure -n dash
+ls -l `which sh`
 
 # Check if docker is installed
 if [ -x "$(command -v docker)" ]; then
