@@ -32,8 +32,6 @@ sudo cp --remove-destination  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 # sudo cp --remove-destination  /usr/share/zoneinfo/Australia/Melbourne  /etc/localtime
 date
 
-git clone 
-cd deploy https://github.com/LiuJiJiJi/deploy.git
 # -----------------------install---------------------------------
 cd script
 sh install_docker.sh
@@ -50,7 +48,7 @@ sh uninstall_gitlab_runner.sh
 
 # -----------------------config env------------------------------
 # Modify the variables in env
-cd services
+cd ../services
 cp -r env.example .env
 source ../script/init_variables.sh
 ```

@@ -12,7 +12,7 @@ echo "Install java and node and python start"
 sudo apt-get install -y openjdk-11-jdk
 java -version
 # maven install ---->
-sudo apt-get install maven
+sudo apt-get install -y maven
 mvn --version
 # update maven setting
 sudo mkdir /usr/share/maven/repsoitories
