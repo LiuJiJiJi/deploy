@@ -59,9 +59,6 @@
         "inboundTag": [
           "tunnel"
         ],
-        "domain": [
-          "full:local.liujiji.com"
-        ],
         "outboundTag": "portal"
       }
     ]
