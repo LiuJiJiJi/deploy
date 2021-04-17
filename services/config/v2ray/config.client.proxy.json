@@ -6,6 +6,7 @@
         }]
     },
     "outbounds": [{
+            "tag": "tunnel",
             "mux": {},
             "protocol": "vmess",
             "sendThrough": "0.0.0.0",
@@ -35,21 +36,6 @@
                     "disableSessionResumption": true,
                     "disableSystemRoot": false
                 }
-            },
-            "tag": "PROXY"
-        },
-        {
-            "tag": "tunnel",
-            "protocol": "vmess",
-            "settings": {
-                "vnext": [{
-                    "address": "v2ray.liujiji.com",
-                    "port": 5430,
-                    "users": [{
-                        "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
-                        "alterId": 32
-                    }]
-                }]
             }
         },
         {

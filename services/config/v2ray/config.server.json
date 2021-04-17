@@ -11,6 +11,7 @@
     }]
   },
   "inbounds": [{
+      "tag": "tunnel",
       "udp": true,
       "port": 5432,
       "protocol": "vmess",
@@ -38,27 +39,10 @@
         "port": 5431,
         "network": "tcp"
       }
-    },
-    {
-      "tag": "tunnel",
-      "port": 5430,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [{
-          "id": "b831381d-6324-4d53-ad4f-8cda48b30811",
-          "alterId": 32
-        }]
-      }
     }
   ],
   "routing": {
-    "rules": [{
-        "type": "field",
-        "inboundTag": [
-          "external"
-        ],
-        "outboundTag": "portal"
-      },
+    "rules": [
       {
         "type": "field",
         "inboundTag": [
@@ -66,6 +50,12 @@
         ],
         "domain": [
           "full:local.liujiji.com"
+        ],
+        "outboundTag": "portal"
+      },{
+        "type": "field",
+        "inboundTag": [
+          "external"
         ],
         "outboundTag": "portal"
       }
