@@ -18,9 +18,9 @@ gitlab-runner
 
 ### init base env
 
-> upload https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb 
->    ----> /script/
 ```shell
+git clone https://github.com/LiuJiJiJi/deploy.git
+cd deploy
 # -----------------------Config sh , For support source ---------------------------------
 sudo dpkg-reconfigure dash
 # select no 
@@ -38,6 +38,8 @@ cd deploy https://github.com/LiuJiJiJi/deploy.git
 cd script
 sh install_docker.sh
 sh install_java_node_python.sh
+# upload https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb 
+#    ----> /script/
 sh install_gitlab_runner.sh
 
 # -----------------------un install------------------------------
