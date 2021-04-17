@@ -2,7 +2,6 @@
 
 #### 介绍
 Deploy related scripts
-[bitnami](https://hub.docker.com/u/bitnami)
 
 #### Dependencies
 
@@ -14,6 +13,7 @@ envsubst
 docker v18.06.3
 docker-compose
 gitlab-runner
+[bitnami](https://hub.docker.com/u/bitnami)
 ```
 
 ### init base env
