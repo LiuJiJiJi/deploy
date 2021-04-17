@@ -4,61 +4,29 @@
     "error": "/var/log/v2ray/error.log",
     "loglevel": "warning"
   },
-  "reverse": {
-    "portals": [{
-      "tag": "portal",
-      "domain": "local.liujiji.com"
-    }]
-  },
-  "inbounds": [{
-      "tag": "tunnel",
-      "udp": true,
-      "port": 5432,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [{
+  "inbound": {
+    "udp": true,
+    "port": 5432,
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+          {
           "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23",
           "level": 1,
           "alterId": 64,
           "security": "chacha20-poly1305"
-        }]
+          }
+        ]
       },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/"
+          "path": "/v2ray"
         }
       }
-    },
-    {
-      "tag": "external",
-      "port": 5431,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1",
-        "port": 5431,
-        "network": "tcp"
-      }
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "tunnel"
-        ],
-        "domain": [
-          "full:local.liujiji.com"
-        ],
-        "outboundTag": "portal"
-      },{
-        "type": "field",
-        "inboundTag": [
-          "external"
-        ],
-        "outboundTag": "portal"
-      }
-    ]
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
   }
 }
