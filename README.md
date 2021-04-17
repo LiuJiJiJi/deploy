@@ -68,7 +68,7 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 export DOMAIN="www.baidu.com"
 export PROXY_PASS="http://192.168.1.106:8080"
 sh ../script/install_certs.sh
-envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
+cp  ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx
 # Update your domain name resolution， target www.baidu.com to your ip6 addr
 # view https://www.baidu.com
@@ -135,6 +135,20 @@ docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 # uninstall 
 docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
+```
+
+### v2ray tls
+
+```shell
+cd services
+mkdir -p ./data/v2ray
+sudo chown -R 1001:1001 ./data/v2ray
+cp  ./config/v2ray/config.demo.json   ./config/v2ray/config.json
+docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
+
+# uninstall 
+docker-compose -f ./docker-compose-v2ray.yml down -v
+sudo rm -rf ./data/v2ray
 ```
 
 ### frp https

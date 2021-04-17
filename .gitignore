@@ -10,3 +10,4 @@ node_modules/
 **/logs/**
 services/data/**
 **/redis.conf
+**/v2ray/config.json
