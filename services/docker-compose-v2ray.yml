@@ -1,6 +1,6 @@
 version: '3'
 services:
-  redis:
+  v2ray:
     container_name: ${V2RAY_CONTAINER_NAME}
     image: ${V2RAY_IMAGE_BASE}:${V2RAY_IMAGE_TAG}
     restart: always
