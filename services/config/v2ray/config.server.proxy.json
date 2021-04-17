@@ -52,15 +52,15 @@
         "inboundTag": [
           "external"
         ],
-        "domain": [
-          "full:local.liujiji.com"
-        ],
         "outboundTag": "portal"
       },
       {
         "type": "field",
         "inboundTag": [
           "tunnel"
+        ],
+        "domain": [
+          "full:local.liujiji.com"
         ],
         "outboundTag": "portal"
       }
