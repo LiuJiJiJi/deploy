@@ -37,7 +37,7 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.37.2/install.sh | 
 # echo 'source $HOME/.nvm/nvm.sh' >> ~/.profile
 echo 'sleep 6s, for waitting ~/.profile edit finish.'
 sleep 6s
-source ~/.profile
+# source ~/.profile
 nvm --version
 nvm install 10
 nvm use 10
