@@ -44,23 +44,5 @@
   "outbound": {
     "protocol": "freedom",
     "settings": {}
-  },
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "external"
-        ],
-        "outboundTag": "portal"
-      },
-      {
-        "type": "field",
-        "inboundTag": [
-          "tunnel"
-        ],
-        "outboundTag": "portal"
-      }
-    ]
   }
 }
