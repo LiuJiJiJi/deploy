@@ -157,3 +157,11 @@ docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
 ```
+### install frp server
+
+```shell
+# start
+cd services
+cp  ./config/frp/frps.server.ini   ./config/v2ray/frps.ini
+
+```

@@ -11,3 +11,5 @@ node_modules/
 services/data/**
 **/redis.conf
 **/v2ray/config.json
+**/frp/frps.ini
+**/frp/frpc.ini
