@@ -32,6 +32,11 @@ sudo cp --remove-destination  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 # sudo cp --remove-destination  /usr/share/zoneinfo/Australia/Melbourne  /etc/localtime
 date
 
+# -----------------------config env------------------------------
+# Modify the variables in env
+cp -r ./services/env.example ./services/.env
+source ./script/init_variables.sh
+
 # -----------------------install---------------------------------
 cd script
 sh install_docker.sh
@@ -46,11 +51,6 @@ sh uninstall_docker.sh
 sh uninstall_java_node_python.sh
 sh uninstall_gitlab_runner.sh
 
-# -----------------------config env------------------------------
-# Modify the variables in env
-cd ../services
-cp -r env.example .env
-source ../script/init_variables.sh
 ```
 
 ### install nginx
@@ -65,7 +65,7 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 # cert generate
 # E.g: domain=www.baidu.com proxy_pass=http://192.168.1.106:8080
 export DOMAIN="www.baidu.com"
-export PROXY_PASS="http://192.168.1.106:8080"
+export PROXY_PASS="http://$IP4_HOST:8080"
 sh ../script/install_certs.sh
 envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx
@@ -87,7 +87,7 @@ cp  ./config/v2ray/config.server.json   ./config/v2ray/config.json
 # Please update the client infomation on ./config/v2ray/config.json ---> generate an neww uuid
 docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
 export DOMAIN="v2ray.baidu.com"
-export PROXY_PASS="http://192.168.1.106:5432"
+export PROXY_PASS="http://$IP4_HOST:5432"
 sh ../script/install_certs.sh
 envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.v2ray.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx v2ray
@@ -166,6 +166,12 @@ cp  ./config/frp/frps.server.ini   ./config/frp/frps.ini
 # update access token
 vim ./config/frp/frps.ini
 docker-compose -f ./docker-compose-frps.yml --compatibility up -d
+# conif nginx
+export DOMAIN="frps.baidu.com"
+export PROXY_PASS="http://$IP4_HOST:50000"
+sh ../script/install_certs.sh
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.v2ray.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
+docker restart nginx
 
 # uninstall 
 docker-compose -f ./docker-compose-frps.yml down -v
