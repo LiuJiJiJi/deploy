@@ -29,7 +29,7 @@ server {
     # security
     include                 conf.d/generic/security.conf;
     location / {
-        proxy_pass ${PROXY_PASS};
+        proxy_pass http://${PROXY_PASS};
         proxy_redirect off;
         proxy_http_version 1.1;
         proxy_set_header Upgrade $http_upgrade;

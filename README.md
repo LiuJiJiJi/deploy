@@ -65,7 +65,7 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 # cert generate
 # E.g: domain=www.baidu.com proxy_pass=http://192.168.1.106:8080
 export DOMAIN="www.baidu.com"
-export PROXY_PASS="http://$IP4_HOST:8080"
+export PROXY_PASS="$IP4_HOST:8080"
 sh ../script/install_certs.sh
 envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx
@@ -87,7 +87,7 @@ cp  ./config/v2ray/config.server.json   ./config/v2ray/config.json
 # Please update the client infomation on ./config/v2ray/config.json ---> generate an neww uuid
 docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
 export DOMAIN="v2ray.baidu.com"
-export PROXY_PASS="http://$IP4_HOST:5432"
+export PROXY_PASS="$IP4_HOST:5432"
 sh ../script/install_certs.sh
 envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/server.v2ray.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
 docker restart nginx v2ray

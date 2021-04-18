@@ -1,0 +1,19 @@
+server {
+    listen 443;
+    server_name             ${DOMAIN};
+    if ($host != '${DOMAIN}') {
+        return 403;
+    }
+    proxy_pass ${PROXY_PASS};
+    # support socket
+    # proxy_pass unix:/var/lib/mysql/mysql.socket;
+}
+
+server {
+    listen 443 udp;
+    server_name             ${DOMAIN};
+    if ($host != '${DOMAIN}') {
+        return 403;
+    }
+    proxy_pass ${PROXY_PASS};
+}
