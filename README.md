@@ -88,7 +88,6 @@ sudo rm -rf ./data/letsencrypt ./data/.acme
 
 ```shell
 cd $HOME/deploy/services
-cd $HOME/deploy/services
 mkdir -p ./data/v2ray
 sudo chown -R 1001:1001 ./data/v2ray
 cp  ./config/v2ray/config.server.json   ./config/v2ray/config.json
