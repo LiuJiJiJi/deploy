@@ -17,5 +17,8 @@ gitlab-runner list
 sudo groupadd docker
 # sudo newgrp docker
 sudo gpasswd -a gitlab-runner docker
+sudo su gitlab-runner
+docker ps
+exit
 
 echo "Install gitlab runner end"
