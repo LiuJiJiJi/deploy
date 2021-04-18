@@ -4,7 +4,7 @@ node_modules/
 *.env
 *.local.yaml
 *.back
-**/conf.d/*.server.conf
+**/conf.d/**.conf
 *.log
 .DS_Store
 **/logs/**
