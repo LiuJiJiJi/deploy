@@ -73,7 +73,7 @@ docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
 export DOMAIN="www.baidu.com"
 export PROXY_PASS="$IP4_HOST:8080"
 sh ../script/install_certs.sh
-envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/http.conf.example > ./config/nginx/conf.d/$DOMAIN.http.conf
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/example/http.conf.example > ./config/nginx/conf.d/$DOMAIN.http.conf
 docker restart nginx
 # Update your domain name resolution， target www.baidu.com to your ip6 addr
 # view https://www.baidu.com
@@ -96,7 +96,7 @@ docker-compose -f ./docker-compose-v2ray.yml --compatibility up -d
 export DOMAIN="v2ray.baidu.com"
 export PROXY_PASS="$IP4_HOST:5432"
 sh ../script/install_certs.sh
-envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/v2ray.http.conf.example > ./config/nginx/conf.d/$DOMAIN.http.conf
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/example/v2ray.http.conf.example > ./config/nginx/conf.d/$DOMAIN.http.conf
 docker restart nginx v2ray
 
 # uninstall 
@@ -182,7 +182,7 @@ docker-compose -f ./docker-compose-frps.yml --compatibility up -d
 export DOMAIN="frps.baidu.com"
 export PROXY_PASS="http://$IP4_HOST:50000"
 sh ../script/install_certs.sh
-envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/stream.conf.example > ./config/nginx/conf.d/$DOMAIN.stream.conf
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/example/stream.conf.example > ./config/nginx/conf.d/$DOMAIN.stream.conf
 docker restart nginx
 
 # uninstall 
