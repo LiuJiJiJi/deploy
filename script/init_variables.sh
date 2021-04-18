@@ -6,8 +6,9 @@ for value in ${ips}
 do
   if [[ "$value" =~ "10."* ]]
   then
-    echo "IP4: $value"
-    export IP4="$value"
+    sed -i '/export IP4_HOST/d' ~/.profile
+    echo "export IP4_HOST=$value  >> ~/.profile"
+    echo "export IP4_HOST=$value" >> ~/.profile
+    source ~/.profile
   fi
 done
-
