@@ -6,7 +6,7 @@ for value in ${ips}
 do
   if [[ "$value" =~ "10."* ]]
   then
-    echo "ip4: $value"
+    echo "IP4: $value"
     export IP4="$value"
   fi
 done

@@ -162,7 +162,11 @@ sudo rm -rf ./data/postgres
 ```shell
 # start
 cd services
-cp  ./config/frp/frps.server.ini   ./config/v2ray/frps.ini
+cp  ./config/frp/frps.server.ini   ./config/frp/frps.ini
 # update access token
+vim ./config/frp/frps.ini
+docker-compose -f ./docker-compose-frps.yml --compatibility up -d
 
+# uninstall 
+docker-compose -f ./docker-compose-frps.yml down -v
 ```
