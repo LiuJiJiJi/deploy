@@ -19,8 +19,7 @@ gitlab-runner
 ### init base env
 
 ```shell
-git clone https://github.com/LiuJiJiJi/deploy.git
-cd deploy
+
 # -----------------------Config sh , For support source ---------------------------------
 sudo dpkg-reconfigure dash
 # select no 
@@ -32,13 +31,20 @@ sudo cp --remove-destination  /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime
 # sudo cp --remove-destination  /usr/share/zoneinfo/Australia/Melbourne  /etc/localtime
 date
 
+#------------------------download project ------------------------------------
+cd $HOME
+git clone https://github.com/LiuJiJiJi/deploy.git
+cd $HOME/deploy
+
 # -----------------------config env------------------------------
 # Modify the variables in env
-cp -r ./services/env.example ./services/.env
-source ./script/init_variables.sh
+# For safety you should update your .env file
+cp -r $HOME/deploy/services/env.example $HOME/deploy/services/.env
+vi $HOME/deploy/services/.env
+source $HOME/deploy/script/init_variables.sh
 
 # -----------------------install---------------------------------
-cd script
+cd $HOME/deploy/script
 sh install_docker.sh
 sh install_java_node_python.sh
 # upload https://gitlab-runner-downloads.s3.amazonaws.com/latest/deb/gitlab-runner_amd64.deb 
@@ -46,7 +52,7 @@ sh install_java_node_python.sh
 sh install_gitlab_runner.sh
 
 # -----------------------un install------------------------------
-cd script
+cd $HOME/deploy/script
 sh uninstall_docker.sh
 sh uninstall_java_node_python.sh
 sh uninstall_gitlab_runner.sh
@@ -57,7 +63,7 @@ sh uninstall_gitlab_runner.sh
 
 ```shell
 # start
-cd services
+cd $HOME/deploy/services
 mkdir -p ./data/letsencrypt
 sudo chown -R 1001:1001 ./data/letsencrypt
 docker-compose -f ./docker-compose-nginx-acmesh.yml up -d
@@ -73,6 +79,7 @@ docker restart nginx
 # view https://www.baidu.com
 
 # uninstall 
+cd $HOME/deploy/services
 docker-compose -f ./docker-compose-nginx-acmesh.yml down -v
 sudo rm -rf ./data/letsencrypt ./data/.acme
 ```
@@ -80,7 +87,8 @@ sudo rm -rf ./data/letsencrypt ./data/.acme
 ### [v2ray](https://www.v2fly.org/config/inbounds.html#inboundobject) + ws + tls
 
 ```shell
-cd services
+cd $HOME/deploy/services
+cd $HOME/deploy/services
 mkdir -p ./data/v2ray
 sudo chown -R 1001:1001 ./data/v2ray
 cp  ./config/v2ray/config.server.json   ./config/v2ray/config.json
@@ -93,6 +101,7 @@ envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/v2ray.http.conf.exam
 docker restart nginx v2ray
 
 # uninstall 
+cd $HOME/deploy/services
 docker-compose -f ./docker-compose-v2ray.yml down -v
 sudo rm -rf ./data/v2ray
 ```
@@ -104,13 +113,14 @@ sudo rm -rf ./data/v2ray
 
 ```shell
 # start
-cd services
+cd $HOME/deploy/services
 mkdir -p ./data/redis
 sudo chown -R 1001:1001 ./data/redis
 docker-compose -f ./docker-compose-redis.yml --compatibility up -d
 
 
 # uninstall 
+cd $HOME/deploy/services
 docker-compose -f ./docker-compose-redis.yml down -v
 sudo rm -rf ./data/redis
 ```
@@ -119,13 +129,14 @@ sudo rm -rf ./data/redis
 
 ```shell
 # start
-cd services
+cd $HOME/deploy/services
 mkdir -p ./data/mysql
 sudo chown -R 1001:1001 ./data/mysql
 docker-compose -f ./docker-compose-mysql.yml --compatibility up -d
 
 
 # uninstall 
+cd $HOME/deploy/services
 docker-compose -f ./docker-compose-mysql.yml down -v
 sudo rm -rf ./data/mysql
 ```
@@ -134,12 +145,13 @@ sudo rm -rf ./data/mysql
 
 ```shell
 # start
-cd services
+cd $HOME/deploy/services
 mkdir -p ./data/mongodb
 sudo chown -R 1001:1001 ./data/mongodb
 docker-compose -f ./docker-compose-mongo.yml --compatibility up -d
 
 # uninstall 
+cd $HOME/deploy/services
 docker-compose -f ./docker-compose-mongo.yml down -v
 sudo rm -rf ./data/mongodb
 ```
@@ -148,12 +160,13 @@ sudo rm -rf ./data/mongodb
 
 ```shell
 # start
-cd services
+cd $HOME/deploy/services
 mkdir -p ./data/postgres
 sudo chown -R 1001:1001 ./data/postgres
 docker-compose -f ./docker-compose-postgres.yml --compatibility up -d
 
 # uninstall 
+cd $HOME/deploy/services
 docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
 ```
@@ -161,7 +174,7 @@ sudo rm -rf ./data/postgres
 
 ```shell
 # start
-cd services
+cd $HOME/deploy/services
 cp  ./config/frp/frps.server.ini   ./config/frp/frps.ini
 # update access token
 vim ./config/frp/frps.ini
@@ -170,9 +183,10 @@ docker-compose -f ./docker-compose-frps.yml --compatibility up -d
 export DOMAIN="frps.baidu.com"
 export PROXY_PASS="http://$IP4_HOST:50000"
 sh ../script/install_certs.sh
-envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/stream.conf.example > ./config/nginx/conf.d/$DOMAIN.server.conf
+envsubst '${DOMAIN}, ${PROXY_PASS}' < ./config/nginx/conf.d/stream.conf.example > ./config/nginx/conf.d/$DOMAIN.stream.conf
 docker restart nginx
 
 # uninstall 
+cd $HOME/deploy/services
 docker-compose -f ./docker-compose-frps.yml down -v
 ```
