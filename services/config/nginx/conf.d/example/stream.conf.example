@@ -1,11 +1,12 @@
+# TODO:
+#   waiting supplement
+#   [reference](https://stackoverflow.com/questions/34741571/nginx-tcp-forwarding-based-on-hostname/40135151#40135151)
+
 map $ssl_preread_server_name $name {
-    ${DOMAIN} ${DOMAIN};
 }
-upstream ${DOMAIN}{
-    server ${PROXY_PASS};
-}
+
 server {
-    listen ${IP4_HOST}:8443;
+    listen 8443;
     proxy_pass $name;
     ssl_preread on;
 }
