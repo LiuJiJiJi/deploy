@@ -6,8 +6,8 @@
         "sendThrough": "0.0.0.0",
         "settings": {
             "vnext": [{
-                "address": "v2ray.liujiji.com",
-                "port": 443,
+                "address": "your server ip",
+                "port": 5432,
                 "users": [{
                     "alterId": 64,
                     "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23"
