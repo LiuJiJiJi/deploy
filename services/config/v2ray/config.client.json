@@ -1,35 +1,49 @@
 {
+    "inbounds": [{
+      "port": xxx,
+      "listen": "xxxxx",
+      "protocol": "socks",
+      "settings": {
+        "udp": true
+      }
+    }, {
+      "port": xx,
+      "listen": "xxxx",
+      "protocol": "http",
+      "settings": {
+        "https": true
+      }
+    }],
     "outbounds": [{
-        "tag": "tunnel",
-        "mux": {},
-        "protocol": "vmess",
-        "sendThrough": "0.0.0.0",
-        "settings": {
-            "vnext": [{
-                "address": "your server ip",
-                "port": 5432,
-                "users": [{
-                    "alterId": 64,
-                    "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23"
-                }]
-            }]
-        },
-        "streamSettings": {
-            "network": "ws",
-            "security": "tls",
-            "tlsSettings": {
-                "allowInsecure": false,
-                "disableSessionResumption": true,
-                "disableSystemRoot": false
-            },
-            "wsSettings": {
-                "path": ""
-            },
-            "xtlsSettings": {
-                "allowInsecure": false,
-                "disableSessionResumption": true,
-                "disableSystemRoot": false
-            }
+      "protocol": "vmess",
+      "settings": {
+        "vnext": [{
+          "address": "xxxx",
+          "port": xxx,
+          "users": [{
+            "alterId": xxx,
+            "id": "xxxxxx-xxxx-xxxxx-xxx-xxxxxxx"
+          }]
+        }]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "xxxx"
         }
-    }]
-}
+      }
+    }, {
+      "protocol": "freedom",
+      "tag": "direct",
+      "settings": {}
+    }],
+    "routing": {
+      "domainStrategy": "IPOnDemand",
+      "rules": [{
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "direct"
+      }]
+    }
+  }
