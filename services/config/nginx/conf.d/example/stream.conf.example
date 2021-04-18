@@ -1,6 +1,5 @@
 map $ssl_preread_server_name $name {
     ${DOMAIN} ${DOMAIN};
-    default https_default_backend;
 }
 upstream ${DOMAIN}{
     server ${PROXY_PASS};
