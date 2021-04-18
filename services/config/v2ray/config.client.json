@@ -1,14 +1,14 @@
 {
     "inbounds": [{
-      "port": xxx,
-      "listen": "xxxxx",
+      "port": 1089,
+      "listen": "127.0.0.1",
       "protocol": "socks",
       "settings": {
         "udp": true
       }
     }, {
-      "port": xx,
-      "listen": "xxxx",
+      "port": 8889,
+      "listen": "127.0.0.1",
       "protocol": "http",
       "settings": {
         "https": true
@@ -18,10 +18,10 @@
       "protocol": "vmess",
       "settings": {
         "vnext": [{
-          "address": "xxxx",
-          "port": xxx,
+          "address": "xxx.xx.xx.xx",
+          "port": 5432,
           "users": [{
-            "alterId": xxx,
+            "alterId": 32,
             "id": "xxxxxx-xxxx-xxxxx-xxx-xxxxxxx"
           }]
         }]
@@ -30,7 +30,7 @@
         "network": "ws",
         "security": "tls",
         "wsSettings": {
-          "path": "xxxx"
+          "path": "/"
         }
       }
     }, {

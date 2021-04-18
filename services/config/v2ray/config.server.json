@@ -11,9 +11,9 @@
     "settings": {
       "clients": [
           {
-          "id": "e1e69406-9c61-4b1a-3ae7-86fd6cbeec23",
+          "id": "xxxxxx-xxxx-xxxxx-xxx-xxxxxxx",
           "level": 1,
-          "alterId": 64,
+          "alterId": 32,
           "security": "chacha20-poly1305"
           }
         ]
