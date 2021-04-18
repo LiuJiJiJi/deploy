@@ -163,5 +163,6 @@ sudo rm -rf ./data/postgres
 # start
 cd services
 cp  ./config/frp/frps.server.ini   ./config/v2ray/frps.ini
+# update access token
 
 ```
