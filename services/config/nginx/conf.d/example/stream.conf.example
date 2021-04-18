@@ -5,7 +5,7 @@ upstream ${DOMAIN}{
     server ${PROXY_PASS};
 }
 server {
-    listen ${IP4_HOST}:443;
+    listen ${IP4_HOST}:8443;
     proxy_pass $name;
     ssl_preread on;
 }

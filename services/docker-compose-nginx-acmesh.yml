@@ -5,6 +5,7 @@ services:
     ports:
       - "${NGINX_HTTP_PORT}:80"
       - "${NGINX_HTTPS_PORT}:443"
+      - "${NGINX_STREAM_PORT}:8443"
     volumes:
       - ${NGINX_CONF_FILE}:/etc/nginx/nginx.conf
       - ${NGINX_CONFD_DIR}:/etc/nginx/conf.d

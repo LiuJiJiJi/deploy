@@ -180,7 +180,7 @@ vim ./config/frp/frps.ini
 docker-compose -f ./docker-compose-frps.yml --compatibility up -d
 # conif nginx
 export DOMAIN="frps.baidu.com"
-export PROXY_PASS="http://$IP4_HOST:50000"
+export PROXY_PASS="$IP4_HOST:50000"
 sh ../script/install_certs.sh
 envsubst '${DOMAIN}, ${PROXY_PASS}, ${IP4_HOST}' < ./config/nginx/conf.d/example/stream.conf.example > ./config/nginx/conf.d/$DOMAIN.stream.conf
 docker restart nginx
