@@ -19,8 +19,8 @@ fi
 sudo echo 'LANG="en_US.UTF-8"' >>/etc/profile
 source /etc/profile
 
-# Install docker v18.06.3
-export docker_version=18.06.3
+# Install docker v20.10.6
+export docker_version=20.10.6
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
 sudo apt-get update
 sudo apt-get -y install apt-transport-https ca-certificates \
