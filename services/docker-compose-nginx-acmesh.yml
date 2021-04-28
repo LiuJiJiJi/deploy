@@ -24,8 +24,10 @@ services:
     command: daemon
     environment:
       - TZ="${TZ}"
-      - DP_Id=${ACMESH_DP_Id}
-      - DP_Key=${ACMESH_DP_Key}
+      # - DP_Id=${ACMESH_DP_Id}
+      # - DP_Key=${ACMESH_DP_Key}
+      - CF_Key=${ACMESH_CF_Key}
+      - CF_Email=${ACMESH_CF_Email}
     volumes:
       - ${NGINX_SSL_DIR}:/etc/letsencrypt
       - ${ACMESH_ROOT_DIR}:/acme.sh
