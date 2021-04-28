@@ -81,7 +81,7 @@ docker restart nginx
 # uninstall 
 cd $HOME/deploy/services
 docker-compose -f ./docker-compose-nginx-acmesh.yml down -v
-sudo rm -rf ./data/letsencrypt ./data/.acme
+sudo rm -rf ./data/letsencrypt ./data/acme.sh
 ```
 
 ### [v2ray](https://www.v2fly.org/config/inbounds.html#inboundobject) + ws + tls
