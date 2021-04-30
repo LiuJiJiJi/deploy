@@ -1,6 +1,7 @@
 version: '3'
 services:
   mysql:
+    platform: linux/x86_64
     container_name: ${MYSQL_CONTAINER_NAME}
     image: ${MYSQL_IMAGE_BASE}:${MYSQL_IMAGE_TAG}
     restart: always
@@ -8,7 +9,6 @@ services:
       - ${MYSQL_HOST_PORT}:3306
     volumes:
       - ${MYSQL_DATA_DIR}:/var/lib/mysql
-      - ${MYSQL_CONFIG_FILE}:/etc/my.cnf
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_USERNAME}

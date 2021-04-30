@@ -4,10 +4,11 @@ services:
     container_name: ${REDIS_CONTAINER_NAME}
     image: ${REDIS_IMAGE_BASE}:${REDIS_IMAGE_TAG}
     restart: always
+    user: root 
     ports:
       - ${REDIS_HOST_PORT}:6379
     volumes:
-      - ${REDIS_DATA_DIR}:/bitnami/redis/data
+      - ${REDIS_DATA_DIR}:/bitnami/redis
     environment:
       - TZ="${TZ}"
       - REDIS_PASSWORD=${REDIS_PASSWORD}

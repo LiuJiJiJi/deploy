@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql:
+  postgres:
     container_name: ${POSTGRES_CONTAINER_NAME}
     restart: always
     image: ${POSTGRES_IMAGE_BASE}:${POSTGRES_IMAGE_TAG}
