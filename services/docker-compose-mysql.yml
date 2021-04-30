@@ -1,7 +1,7 @@
 version: '3'
 services:
   mysql:
-    platform: linux/x86_64
+    # platform: linux/x86_64
     container_name: ${MYSQL_CONTAINER_NAME}
     image: ${MYSQL_IMAGE_BASE}:${MYSQL_IMAGE_TAG}
     restart: always
