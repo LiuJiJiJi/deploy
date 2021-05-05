@@ -55,7 +55,7 @@ sudo yarn config set registry https://registry.npm.taobao.org
 
 
 # Dont uninstall python2.7, Is the basic package
-# python3.7 ----> /usr/bin/python3.7
+# /usr/local/lib/python3.7 --> python3.7 ----> /usr/bin/python3.7
 # https://www.python.org/ftp/python/3.xx/
 whereis python
 sudo add-apt-repository ppa:jonathonf/python-3.7
