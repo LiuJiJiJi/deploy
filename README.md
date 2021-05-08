@@ -169,6 +169,23 @@ cd $HOME/deploy/services
 docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
 ```
+
+### install es 1.5
+
+```shell
+# start
+cd $HOME/deploy/es_1_5
+mkdir -p ./data/es_1_5
+sudo chown -R 1001:1001 ./data/es_1_5
+docker-compose -f ./docker-compose-es_1_5.yml --compatibility up -d
+
+# uninstall 
+cd $HOME/deploy/services
+docker-compose -f ./docker-compose-es_1_5.yml down -v
+sudo rm -rf ./data/es_1_5
+```
+
+
 ### install frp server
 
 ```shell
