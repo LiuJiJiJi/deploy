@@ -2,7 +2,7 @@ version: '3'
 services:
   es_1_5:
     container_name: ${ES_1_5_CONTAINER_NAME}
-    image: ${ES_1_5_IMAGE_BASE}:${FRPS_IMAGE_TAG}
+    image: ${ES_1_5_IMAGE_BASE}:${ES_1_5_IMAGE_TAG}
     command: ["elasticsearch", "-Xms1g", "-Xmx1g", "--cluster.name=openedx", "--bootstrap.mlockall=true"]
     ports:
       - ${ES_1_5_PORT_1}:9200
