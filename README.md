@@ -174,15 +174,15 @@ sudo rm -rf ./data/postgres
 
 ```shell
 # start
-cd $HOME/deploy/es_1_5
-mkdir -p ./data/es_1_5
-sudo chown -R 1001:1001 ./data/es_1_5
-docker-compose -f ./docker-compose-es_1_5.yml --compatibility up -d
+cd $HOME/deploy/es1
+mkdir -p ./data/es1
+sudo chown -R 1001:1001 ./data/es1
+docker-compose -f ./docker-compose-es1.yml --compatibility up -d
 
 # uninstall 
 cd $HOME/deploy/services
-docker-compose -f ./docker-compose-es_1_5.yml down -v
-sudo rm -rf ./data/es_1_5
+docker-compose -f ./docker-compose-es1.yml down -v
+sudo rm -rf ./data/es1
 ```
 
 
