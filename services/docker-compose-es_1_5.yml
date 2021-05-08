@@ -1,16 +1,16 @@
 version: '3'
 services:
   es_1_5:
-    container_name: ${ES_1_5_CONTAINER_NAME}
-    image: ${ES_1_5_IMAGE_BASE}:${ES_1_5_IMAGE_TAG}
+    container_name: ${ES1_CONTAINER_NAME}
+    image: ${ES1_IMAGE_BASE}:${ES1_IMAGE_TAG}
     command: ["elasticsearch", "-Xms1g", "-Xmx1g", "--cluster.name=openedx", "--bootstrap.mlockall=true"]
     ports:
-      - ${ES_1_5_PORT_1}:9200
-      - ${ES_1_5_PORT_2}:9300  
+      - ${ES1_PORT_1}:9200
+      - ${ES1_PORT_2}:9300  
     ulimits:
       memlock:
         soft: -1
         hard: -1
     restart: always
     volumes:
-      - ${ES_1_5_DATA_FILE}:/usr/share/elasticsearch/data
+      - ${ES1_DATA_FILE}:/usr/share/elasticsearch/data
