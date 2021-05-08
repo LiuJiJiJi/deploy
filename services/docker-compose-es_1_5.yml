@@ -12,5 +12,5 @@ services:
         soft: -1
         hard: -1
     restart: always
-  volumes:
-    - ${ES_1_5_DATA_FILE}:/usr/share/elasticsearch/data
+    volumes:
+      - ${ES_1_5_DATA_FILE}:/usr/share/elasticsearch/data
