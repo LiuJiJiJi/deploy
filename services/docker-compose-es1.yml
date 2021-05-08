@@ -1,6 +1,6 @@
 version: '3'
 services:
-  es_1_5:
+  es1:
     container_name: ${ES1_CONTAINER_NAME}
     image: ${ES1_IMAGE_BASE}:${ES1_IMAGE_TAG}
     command: ["elasticsearch", "-Xms1g", "-Xmx1g", "--cluster.name=openedx", "--bootstrap.mlockall=true"]
