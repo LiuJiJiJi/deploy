@@ -14,16 +14,3 @@ services:
     restart: always
   volumes:
     - ${ES_1_5_DATA_FILE}:/usr/share/elasticsearch/data
-
-    services:
-      frps:
-        container_name: ${FRPS_CONTAINER_NAME}
-        image: ${FRPS_IMAGE_BASE}:${FRPS_IMAGE_TAG}
-        restart: always
-        ports:
-          - ${FRPS_HOST_PORT}:50000
-          - ${FRPS_PROXY_PORT}:50001
-        volumes:
-          - ${FRPS_CONF_FILE}:/etc/frp/frps.ini
-        environment:
-          - TZ="${TZ}"    
