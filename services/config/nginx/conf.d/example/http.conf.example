@@ -36,6 +36,8 @@ server {
     location / {
         # root   /usr/share/nginx/html;
         # index  index.html index.htm;
+        # try_files $uri /;
+        # expires 10d;
         proxy_pass http://${PROXY_PASS};
 
         # proxy_set_header Content-Type 'application/json';
