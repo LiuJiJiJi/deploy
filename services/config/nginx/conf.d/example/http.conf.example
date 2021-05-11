@@ -34,7 +34,7 @@ server {
 
     # /favicon.ico
     location /favicon.ico {
-       root conf.d/static/nuxt;
+       root conf.d/static;
     }
 
     # reverse proxy
