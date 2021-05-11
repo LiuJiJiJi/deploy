@@ -32,6 +32,11 @@ server {
     access_log              /var/log/nginx/${DOMAIN}.access.log;
     error_log               /var/log/nginx/${DOMAIN}.error.log warn;
 
+    # /favicon.ico
+    location /favicon.ico {
+       root conf.d/static/nuxt;
+    }
+
     # reverse proxy
     location / {
         # root   /usr/share/nginx/html;
