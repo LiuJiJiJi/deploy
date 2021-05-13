@@ -1,9 +1,9 @@
 # Deploy
 
-#### 介绍
+## 介绍
 Deploy related scripts
 
-#### Dependencies
+## Dependencies
 
 **Ubuntu**
 
@@ -16,7 +16,7 @@ gitlab-runner
 [bitnami](https://hub.docker.com/u/bitnami)
 ```
 
-### init base env
+## init base env
 
 ```shell
 
@@ -59,7 +59,7 @@ sh uninstall_gitlab_runner.sh
 
 ```
 
-### install nginx
+## install nginx
 
 ```shell
 # start
@@ -108,7 +108,7 @@ sudo rm -rf ./data/v2ray
 > ![](./img/v2ray_config.png)
 > ![](./img/v2ray_config_tsl.png)
 
-### install redis
+## install redis
 
 ```shell
 # start
@@ -124,7 +124,7 @@ docker-compose -f ./docker-compose-redis.yml down -v
 sudo rm -rf ./data/redis
 ```
 
-### install mysql
+## install mysql
 
 ```shell
 # start
@@ -140,7 +140,7 @@ docker-compose -f ./docker-compose-mysql.yml down -v
 sudo rm -rf ./data/mysql
 ```
 
-### install mongodb
+## install mongodb
 
 ```shell
 # start
@@ -155,7 +155,7 @@ docker-compose -f ./docker-compose-mongo.yml down -v
 sudo rm -rf ./data/mongodb
 ```
 
-### install postgres
+## install postgres
 
 ```shell
 # start
@@ -170,7 +170,7 @@ docker-compose -f ./docker-compose-postgres.yml down -v
 sudo rm -rf ./data/postgres
 ```
 
-### install es 1.5
+## install es 1.5
 
 ```shell
 # start
@@ -186,7 +186,7 @@ sudo rm -rf ./data/es1
 ```
 
 
-### install frp server
+## install frp server
 
 ```shell
 # start
