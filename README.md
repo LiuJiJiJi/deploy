@@ -59,7 +59,7 @@ sh uninstall_gitlab_runner.sh
 
 ```
 
-### install nginx   [nginx proxy tcp port](https://www.it610.com/article/1281701766869565440.htm)
+### install nginx
 
 ```shell
 # start
