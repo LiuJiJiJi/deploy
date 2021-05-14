@@ -206,3 +206,7 @@ docker restart nginx
 cd $HOME/deploy/services
 docker-compose -f ./docker-compose-frps.yml down -v
 ```
+
+## FAQ
+
++ [Shell executor fails to prepare environment in Ubuntu 20.04](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/26605)
