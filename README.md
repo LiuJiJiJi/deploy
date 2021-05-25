@@ -174,7 +174,7 @@ sudo rm -rf ./data/postgres
 
 ```shell
 # start
-cd $HOME/deploy/es1
+cd $HOME/deploy/services
 mkdir -p ./data/es1
 sudo chown -R 1001:1001 ./data/es1
 docker-compose -f ./docker-compose-es1.yml --compatibility up -d
