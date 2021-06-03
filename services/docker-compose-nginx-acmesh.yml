@@ -26,8 +26,11 @@ services:
       - TZ="${TZ}"
       # - DP_Id=${ACMESH_DP_Id}
       # - DP_Key=${ACMESH_DP_Key}
-      - CF_Key=${ACMESH_CF_Key}
-      - CF_Email=${ACMESH_CF_Email}
+      # - CF_Key=${ACMESH_CF_Key}
+      # - CF_Email=${ACMESH_CF_Email}
+      - CF_Account_ID=${ACMESH_CF_ACCOUNT_ID}
+      - CF_Token=${ACMESH_CF_TOKEN}
+      - CF_Zone_ID=${ACMESH_CF_ZONE_ID}
     volumes:
       - ${NGINX_SSL_DIR}:/etc/letsencrypt
       - ${ACMESH_ROOT_DIR}:/acme.sh
