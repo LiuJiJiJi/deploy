@@ -9,6 +9,7 @@ services:
       - ${MYSQL_HOST_PORT}:3306
     volumes:
       - ${MYSQL_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL_CONFIG_FILE}:/etc/my.cnf
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_USERNAME}
