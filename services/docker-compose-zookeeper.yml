@@ -7,7 +7,7 @@ services:
     ports:
       - ${ZOOKEEPER_HOST_PORT}:2181
     volumes:
-      - ${ZOOKEEPER_DATA_DIR}:/bitnami/mongodb
+      - ${ZOOKEEPER_DATA_DIR}:/bitnami/zookeeper
     environment:
       - TZ="${TZ}"
       - ZOO_ENABLE_AUTH=yes
