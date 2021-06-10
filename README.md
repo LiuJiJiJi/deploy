@@ -16,6 +16,7 @@ gitlab-runner
 [bitnami](https://hub.docker.com/u/bitnami)
 ```
 
+**Tip:** 在mac上不需要执行`sudo chown -R 1001:1001 ./data/xxx`
 ## init base env
 
 ```shell
