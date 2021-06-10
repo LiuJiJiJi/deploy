@@ -161,6 +161,21 @@ docker-compose -f ./docker-compose-es1.yml down -v
 sudo rm -rf ./data/es1
 ```
 
+## install zookeeper
+
+```shell
+# start
+cd $HOME/deploy/services
+mkdir -p ./data/zookeeper
+sudo chown -R 1001:1001 ./data/zookeeper
+docker-compose -f ./docker-compose-zookeeper.yml --compatibility up -d
+
+# uninstall 
+cd $HOME/deploy/services
+docker-compose -f ./docker-compose-zookeeper.yml down -v
+sudo rm -rf ./data/zookeeper
+```
+
 
 ## install frp server
 
