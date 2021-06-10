@@ -6,7 +6,7 @@ services:
     restart: always
     ports:
       - ${JUPYTERHUB_HOST_PORT}:8000
-    volumes:
-      - ${JUPYTERHUB_DATA_DIR}:/bitnami/jupyterhub
+    # volumes:
+    #   - ${JUPYTERHUB_DATA_DIR}:/bitnami/jupyterhub
     environment:
       - TZ="${TZ}"

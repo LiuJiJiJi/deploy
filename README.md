@@ -191,6 +191,12 @@ mkdir -p ./data/jupyterhub
 sudo chown -R 1001:1001 ./data/jupyterhub
 docker-compose -f ./docker-compose-jupyterhub.yml --compatibility up -d
 
+# jupyterhub 中的用户就是  当前系统的用户
+docker run -p 8000:8000 -d --name jupyterhub jupyterhub/jupyterhub:1.4  jupyterhub
+docker exec -it jupyterhub bash
+passwd root
+https://localhost:8000   root/123456
+
 # uninstall 
 cd $HOME/deploy/services
 docker-compose -f ./docker-compose-jupyterhub.yml down -v
