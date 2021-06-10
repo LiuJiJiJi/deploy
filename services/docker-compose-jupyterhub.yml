@@ -1,15 +1,12 @@
 version: '3'
 services:
   jupyterhub:
-    container_name: jupyterhub
-    image: jupyterhub/jupyterhub:1.0.0
+    container_name: ${JUPYTERHUB_CONTAINER_NAME}
+    image: ${JUPYTERHUB_IMAGE_BASE}:${JUPYTERHUB_IMAGE_TAG}
     restart: always
-    user: root 
     ports:
-      - ${REDIS_HOST_PORT}:6379
+      - ${JUPYTERHUB_HOST_PORT}:8000
     volumes:
-      - ${REDIS_DATA_DIR}:/bitnami/redis
+      - ${JUPYTERHUB_DATA_DIR}:/bitnami/jupyterhub
     environment:
       - TZ="${TZ}"
-      - REDIS_PASSWORD=${REDIS_PASSWORD}
-      - REDIS_DISABLE_COMMANDS=${REDIS_DISABLE_COMMANDS}

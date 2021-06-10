@@ -182,6 +182,21 @@ docker-compose -f ./docker-compose-zookeeper.yml down -v
 sudo rm -rf ./data/zookeeper
 ```
 
+## install jupyterhub
+
+```shell
+# start
+cd $HOME/deploy/services
+mkdir -p ./data/jupyterhub
+sudo chown -R 1001:1001 ./data/jupyterhub
+docker-compose -f ./docker-compose-jupyterhub.yml --compatibility up -d
+
+# uninstall 
+cd $HOME/deploy/services
+docker-compose -f ./docker-compose-jupyterhub.yml down -v
+sudo rm -rf ./data/jupyterhub
+```
+
 
 ## install frp server
 
