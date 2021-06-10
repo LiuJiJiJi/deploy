@@ -110,6 +110,11 @@ mkdir -p ./data/mysql
 sudo chown -R 1001:1001 ./data/mysql
 docker-compose -f ./docker-compose-mysql.yml --compatibility up -d
 
+# use root access mysql
+docker exec -it mysql1 mysql -uroot -p
+mysql> use mysql;
+mysql> update user set host='%' where user='root';
+mysql> flush privileges;
 
 # uninstall 
 cd $HOME/deploy/services
