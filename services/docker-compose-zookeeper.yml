@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mongodb:
+  zookeeper:
     container_name: ${ZOOKEEPER_CONTAINER_NAME}
     image: ${ZOOKEEPER_IMAGE_BASE}:${ZOOKEEPER_IMAGE_TAG}
     restart: always
