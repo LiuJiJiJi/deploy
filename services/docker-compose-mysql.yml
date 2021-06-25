@@ -1,24 +1,60 @@
 version: '3'
 services:
-  mysql:
-    # platform: linux/x86_64
-    container_name: ${MYSQL_CONTAINER_NAME}
-    image: ${MYSQL_IMAGE_BASE}:${MYSQL_IMAGE_TAG}
+  mysql5:
+    container_name: ${MYSQL5_CONTAINER_NAME}
+    image: ${MYSQL5_IMAGE_BASE}:${MYSQL5_IMAGE_TAG}
     restart: always
     ports:
-      - ${MYSQL_HOST_PORT}:3306
+      - ${MYSQL5_HOST_PORT}:3306
     volumes:
-      - ${MYSQL_DATA_DIR}:/var/lib/mysql
-      - ${MYSQL_CONFIG_FILE}:/etc/my.cnf
+      - ${MYSQL5_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL5_CONFIG_FILE}:/etc/my.cnf
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_USERNAME}
-      MYSQL_USER: ${MYSQL_USERNAME}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL5_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL5_USERNAME}
+      MYSQL_USER: ${MYSQL5_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL5_PASSWORD}
+
+  mysql8:
+    container_name: ${MYSQL8_CONTAINER_NAME}
+    image: ${MYSQL8_IMAGE_BASE}:${MYSQL8_IMAGE_TAG}
+    restart: always
+    ports:
+      - ${MYSQL8_HOST_PORT}:3306
+    volumes:
+      - ${MYSQL8_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL8_CONFIG_FILE}:/etc/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL8_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL8_USERNAME}
+      MYSQL_USER: ${MYSQL8_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL8_PASSWORD}
     # command:
     #   # 将mysql8.0默认密码策略 修改为 原先 策略 (mysql8.0对其默认策略做了更改 会导致密码无法匹配)
     #   --default-authentication-plugin=mysql_native_password
     #   --character-set-server=utf8mb4
     #   --collation-server=utf8mb4_general_ci
     #   --explicit_defaults_for_timestamp=true
-    #   --lower_case_table_names=1
+    #   --lower_case_table_names=1    
+
+  mysql8_2:
+    container_name: ${MYSQL8_2_CONTAINER_NAME}
+    image: ${MYSQL8_2_IMAGE_BASE}:${MYSQL8_2_IMAGE_TAG}
+    restart: always
+    ports:
+      - ${MYSQL8_2_HOST_PORT}:3306
+    volumes:
+      - ${MYSQL8_2_DATA_DIR}:/var/lib/mysql
+      - ${MYSQL8_2_CONFIG_FILE}:/etc/my.cnf
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL8_2_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL8_2_USERNAME}
+      MYSQL_USER: ${MYSQL8_2_USERNAME}
+      MYSQL_PASSWORD: ${MYSQL8_2_PASSWORD}
+    # command:
+    #   # 将mysql8.0默认密码策略 修改为 原先 策略 (mysql8.0对其默认策略做了更改 会导致密码无法匹配)
+    #   --default-authentication-plugin=mysql_native_password
+    #   --character-set-server=utf8mb4
+    #   --collation-server=utf8mb4_general_ci
+    #   --explicit_defaults_for_timestamp=true
+    #   --lower_case_table_names=1        
