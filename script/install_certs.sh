@@ -8,9 +8,11 @@ echo "[$DOMAIN] generate cert start"
 
 # docker exec acme --issue --log --dns dns_dp -d $DOMAIN --keylength ec-384
 # sudo docker exec acme --issue --log --dns dns_dp -d $DOMAIN
-sudo docker exec acme --issue --log --dns dns_cf -d $DOMAIN
+docker exec acme --issue --log --dns dns_cf -d $DOMAIN
+# sudo docker exec acme --issue --log --dns dns_cf -d $DOMAIN
 
-sudo docker exec acme --install-cert -d $DOMAIN \
+# sudo 
+docker exec acme --install-cert -d $DOMAIN \
   --cert-file /etc/letsencrypt/$DOMAIN.chain.pem \
   --key-file /etc/letsencrypt/$DOMAIN.privkey.pem \
   --fullchain-file /etc/letsencrypt/$DOMAIN.fullchain.pem
