@@ -34,7 +34,7 @@ services:
       --default-authentication-plugin=mysql_native_password
       --character-set-server=utf8mb4
       --collation-server=utf8mb4_general_ci
-      --explicit_defaults_for_timestamp=true
+      --explicit_defaults_for_timestamp=false
       --lower_case_table_names=1    
 
   mysql8_2:

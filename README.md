@@ -219,6 +219,12 @@ docker restart nginx
 # uninstall 
 cd $HOME/deploy/services
 docker-compose -f ./docker-compose-frps.yml down -v
+
+# frp客户端连接服务器
+# 下载frp --> https://github.com/fatedier/frp/releases
+# 编辑frpc.ini
+# 启动客户端
+./frpc -c ./frpc.ini
 ```
 
 ## FAQ
