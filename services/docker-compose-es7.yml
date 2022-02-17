@@ -1,0 +1,13 @@
+version: '3'
+services:
+  es7:
+    container_name: ${ES7_CONTAINER_NAME}
+    image: ${ES7_IMAGE_BASE}:${ES7_IMAGE_TAG}
+    ports:
+      - ${ES7_PORT_1}:9200
+      - ${ES7_PORT_2}:9300  
+    environment:
+      - discovery.type=single-node      
+    # restart: always
+    volumes:
+      - ${ES7_DATA_FILE}:/usr/share/elasticsearch/data

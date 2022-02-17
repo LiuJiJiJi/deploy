@@ -163,6 +163,45 @@ docker-compose -f ./docker-compose-es1.yml down -v
 sudo rm -rf ./data/es1
 ```
 
+## install es 1.5
+
+```shell
+# start
+cd $HOME/deploy/services
+mkdir -p ./data/es1
+sudo chown -R 1001:1001 ./data/es1
+docker-compose -f ./docker-compose-es1.yml --compatibility up -d
+
+# uninstall 
+cd $HOME/deploy/services
+docker-compose -f ./docker-compose-es1.yml down -v
+sudo rm -rf ./data/es1
+```
+
+## install es 7
+
+```shell
+# start
+cd $HOME/deploy/services
+mkdir -p ./data/es7
+sudo chown -R 1001:1001 ./data/es7
+docker-compose -f ./docker-compose-es7.yml --compatibility up -d
+# 设置密码
+# https://www.elastic.co/guide/en/elasticsearch/reference/7.13/security-minimal-setup.html
+docker exec -it es7 /bin/bash  
+vi ./config/elasticsearch.yml
+    xpack.security.enabled: true
+# 重启es7
+docker exec -it es7 /bin/bash  
+# 设置密码
+./bin/elasticsearch-setup-passwords interactive
+
+# uninstall 
+cd $HOME/deploy/services
+docker-compose -f ./docker-compose-es7.yml down -v
+sudo rm -rf ./data/es7
+```
+
 ## install zookeeper
 
 ```shell
