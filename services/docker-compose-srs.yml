@@ -10,7 +10,7 @@ services:
       - ${SRS_HOST_PORT_3}:8080  
       - ${SRS_HOST_PORT_4}:8000/udp     
     environment:
-      CANDIDATE: ${SRS_CANDIDATE}   
+      - CANDIDATE="${SRS_CANDIDATE}"
     restart: "no"
     volumes:
       - ${SRS_CONFIG_FILE}:/usr/local/srs/conf/rtmp2rtc.conf
