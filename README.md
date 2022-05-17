@@ -266,6 +266,14 @@ docker-compose -f ./docker-compose-frps.yml down -v
 ./frpc -c ./frpc.ini
 ```
 
+```shell
+# start
+cd $HOME/deploy/services
+docker-compose -f ./docker-compose-srs.yml --compatibility up -d
+# uninstall 
+docker-compose -f ./docker-compose-srs.yml down -v
+```
+
 ## FAQ
 
 + [Shell executor fails to prepare environment in Ubuntu 20.04](https://gitlab.com/gitlab-org/gitlab-runner/-/issues/26605)

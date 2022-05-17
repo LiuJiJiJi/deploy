@@ -1,0 +1,16 @@
+version: '3'
+services:
+  srs:
+    container_name: ${SRS_CONTAINER_NAME}
+    image: ${SRS_IMAGE_BASE}:${SRS_IMAGE_TAG}
+    command: ["./objs/srs", "-c", "conf/rtmp2rtc.conf"]
+    ports:
+      - ${SRS_HOST_PORT_1}:1935
+      - ${SRS_HOST_PORT_2}:1985
+      - ${SRS_HOST_PORT_3}:8080  
+      - ${SRS_HOST_PORT_4}:8000/udp     
+    environment:
+      CANDIDATE: ${SRS_CANDIDATE}   
+    restart: "no"
+    volumes:
+      - ${SRS_CONFIG_FILE}:/usr/local/srs/conf/rtmp2rtc.conf
