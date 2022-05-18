@@ -266,6 +266,7 @@ docker-compose -f ./docker-compose-frps.yml down -v
 ./frpc -c ./frpc.ini
 ```
 
+## install srs
 ```shell
 # start
 cd $HOME/deploy/services
