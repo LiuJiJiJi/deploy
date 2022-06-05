@@ -1,0 +1,10 @@
+version: '3'
+services:
+  meilisearch:
+    container_name: ${MEILI_CONTAINER_NAME}
+    image: ${MEILI_IMAGE_BASE}:${MEILI_IMAGE_TAG}
+    ports:
+      - ${MEILI_PORT_1}:7700
+    restart: "no"
+    volumes:
+      - ${MEILI_DATA_FILE}:/meili_data

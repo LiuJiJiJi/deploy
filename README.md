@@ -202,6 +202,18 @@ docker-compose -f ./docker-compose-es7.yml down -v
 sudo rm -rf ./data/es7
 ```
 
+## install es 7
+
+```shell
+# start
+docker-compose -f ./docker-compose-meilisearch.yml --compatibility up -d
+
+# uninstall 
+cd $HOME/deploy/services
+docker-compose -f ./docker-compose-meilisearch.yml down -v
+sudo rm -rf ./data/es7
+```
+
 ## install zookeeper
 
 ```shell
