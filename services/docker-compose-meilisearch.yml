@@ -5,6 +5,7 @@ services:
     image: ${MEILI_IMAGE_BASE}:${MEILI_IMAGE_TAG}
     ports:
       - ${MEILI_PORT_1}:7700
+    command: "/bin/meilisearch --master-key='${MEILI_MASTER_KEY}'"
     restart: "no"
     volumes:
       - ${MEILI_DATA_FILE}:/meili_data
